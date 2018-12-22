@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Informe Diario</title>
+    <link rel="stylesheet" href="../../css/main.css">
+  </head>
+  <body>
+
+    <header>
+      <h1>Informe del</h1>
+
+      <span class="navegacionFecha">
+	<div class="anteriorPosterior">
+	  <button id="anterior">Día anterior</button>
+	  <button id="posterior">Día posterior</button>
+	</div>
+	<input type="date" placeholder="aaaa-mm-dd" value="aaaa-mm-dd" id="calenda">
+      </span>
+
+    <div class = "navegacion">
+      <a href="sinoptica.html"> Situación sinóptica</a>
+      <a href="precipitacion.html"> Precipitación </a>
+      <a href="nieve.html"> Nieve </a>
+      <a href="viento.html"> Viento </a>
+      <a href="radar.html"> Radar </a>
+      <a href="nubesbajas.html"> Nubes bajas </a>
+    </div>
+    
+    </header>
+    <main>
+      
+    <h2>Temperatura máxima</h2>
+    <section id="s1">
+      
+      <div class="row">
+	<div class="figura">
+	  <h3>OBSERVADO</h3>
+	  <img src="P_Max_0000_24.jpg">
+	</div>
+	<div class="figura">
+	  <h3>IFS</h3>
+	  <img src="MOD00CEP1048TMAX_24.1.png">
+	</div>
+      </div>
+      
+      <div class="row">
+	<div class="figura">
+	  <h3>HARM 40</h3>
+	  <img src="MOD00HMARP1048TMAX_24.1.png">
+	</div>
+	<div class="figura">
+	  <h3>HARM 38</h3>
+	  <img src="MOD00HMAR2P1048TMAX_24.1.png">
+	</div>
+      </div>
+      
+    </section>
+
+    <h2>Temperatura mínima</h2>
+    <section id="s1">
+      
+      <div class="row">
+	<div class="figura">
+	  <h3>OBSERVADO</h3>
+	  <img src="P_Min_0000_24.jpg">
+	</div>
+	<div class="figura">
+	  <h3>IFS</h3>
+	  <img src="MOD00CEP1048TMIN_24.1.png">
+	</div>
+      </div>
+      
+      <div class="row">
+	<div class="figura">
+	  <h3>HARM 40</h3>
+	  <img src="MOD00HMARP1048TMIN_24.1.png">
+	</div>
+	<div class="figura">
+	  <h3>HARM 38</h3>
+	  <img src="MOD00HMAR2P1048TMIN_24.1.png">
+	</div>
+      </div>
+      
+    </section>
+    <script>file='sinoptica.html'</script>
+    <script>date=</script>
+    <script src="../../js/main.js"></script>
+  </body>
+</html>

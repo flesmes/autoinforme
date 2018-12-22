@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Informe Diario</title>
+    <link rel="stylesheet" href="../../css/main.css">
+  </head>
+  <body>
+
+    <header>
+      <h1>Informe del</h1>
+
+      <span class="navegacionFecha">
+	<div class="anteriorPosterior">
+	  <button id="anterior">Día anterior</button>
+	  <button id="posterior">Día posterior</button>
+	</div>
+	<input type="date" placeholder="aaaa-mm-dd" value="aaaa-mm-dd" id="calenda">
+      </span>
+
+      <div class = "navegacion">
+	<a href="sinoptica.html"> Situación sinóptica</a>
+	<a href="nieve.html"> Nieve </a>
+	<a href="viento.html"> Viento </a>
+	<a href="temperatura.html"> Temperatura </a>
+ 	<a href="radar.html"> Radar </a>
+	<a href="nubesbajas.html"> Nubes bajas </a>
+      </div>
+
+    </header>
+    <main>
+      
+      <h2>Precipitación en 24 horas</h2>
+      <select name="pasada" id="choose">
+	<option value=1 selected>Pasada D   00</option>
+	<option value=2>Pasada D-1 12</option>
+	<option value=3>Pasada D-1 00</option>
+      </select>
+      <section id="s1">
+	<div class="row">
+	  <div class="figura">
+	    <h3>OBSERVADO</h3>
+	    <img src="P_Prec_0000_24.jpg">
+	  </div>
+	  <div class="figura">
+	    <h3>IFS</h3>
+	    <img src="MOD00CEP1024PCP_24.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>HARM 40</h3>
+	    <img src="MOD00HMARP1024PCP_24.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>HARM 38</h3>
+	    <img src="MOD00HMAR2P1024PCP_24.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 1 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1024PDP_24_1.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 5 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1024PDP_24_5.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 20 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1024PDP_24_20.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 40 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1024PDP_24_40.1.png">
+	  </div>
+	</div>
+      </section>
+
+      <section id="s2">
+	<div class="row">
+	  <div class="figura">
+	    <h3>OBSERVADO</h3>
+	    <img src="P_Prec_0000_24.jpg">
+	  </div>
+	  <div class="figura">
+	    <h3>IFS</h3>
+	    <img src="MOD12CEP1036PCP_24.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>HARM 40</h3>
+	    <img src="MOD12HMARP1036PCP_24.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>HARM 38</h3>
+	    <img src="MOD12HMAR2P1036PCP_24.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 1 mm
+	    </h3>
+	    <img src="MOD12CEEPSP1P1036PDP_24_1.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 5 mm
+	    </h3>
+	    <img src="MOD12CEEPSP1P1036PDP_24_5.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 20 mm
+	    </h3>
+	    <img src="MOD12CEEPSP1P1036PDP_24_20.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 40 mm
+	    </h3>
+	    <img src="MOD12CEEPSP1P1036PDP_24_40.1.png">
+	  </div>
+	</div>
+      </section>
+
+      <section id="s3">
+	<div class="row">
+	  <div class="figura">
+	    <h3>OBSERVADO</h3>
+	    <img src="P_Prec_0000_24.jpg">
+	  </div>
+	  <div class="figura">
+	    <h3>IFS</h3>
+	    <img src="MOD00CEP1048PCP_24.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>HARM 40</h3>
+	    <img src="MOD00HMARP1048PCP_24.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>HARM 38</h3>
+	    <img src="MOD00HMAR2P1048PCP_24.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 1 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1048PDP_24_1.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 5 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1048PDP_24_5.1.png">
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 20 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1048PDP_24_20.1.png">
+	  </div>
+	  <div class="figura">
+	    <h3>
+	      <span class="left-block">EPS</span>
+	      P > 40 mm
+	    </h3>
+	    <img src="MOD00CEEPSP1P1048PDP_24_40.1.png">
+	  </div>
+	</div>
+      </section>
+      <script>file='precipitacion.html'</script>
+      <script>date=</script>
+      <script src="../../js/main.js"></script>
+      <script src="../../js/pasada.js"></script>
+
+    </main>
+  </body>
+</html>

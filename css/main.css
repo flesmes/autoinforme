@@ -1,0 +1,132 @@
+body {
+    background: white;
+    color: navy;
+}
+
+header,
+main {
+    border: 1px solid navy;
+    margin: 0 auto;
+}
+
+header {
+    background: #e6e6ff;
+    padding: 0 60px;
+    width: 1220px;
+}
+
+
+main {
+    padding: 0 25px;
+    width: 1290px;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+.navegacionFecha{
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid navy;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.anteriorPosterior{
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid navy;
+    margin-bottom: 5px;
+}
+
+button{
+    color: navy;
+}
+
+input{
+    color: dimGray;
+    text-align: center;
+    width: 220px;
+}
+
+select {
+    color: navy;
+}
+
+h2 {
+    padding: 20px 0 20px 0;
+    margin: 0;
+}
+
+h2.central{
+    text-align: center;
+}
+
+.navegacion {
+    margin: 10px 0 50px 0;
+}
+
+.navegacion a {
+    padding: 10px;
+    border: 2px solid #00008B;
+    display: inline-block;
+    background: #00008B;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navegacion a:hover {
+    color: #00008B;
+    background: white;
+}
+
+.row {
+    height: 580px;
+}
+
+.left-block {
+    display:inline-block;
+    width: 270px;
+}
+
+.figura {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.figura h3{
+    padding: 10px 0;
+}
+
+img {
+    width: 640px;
+}
+
+img.radar {
+    width: 950px;
+}
+
+img.bajas {
+    width: 810px;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+main.radar .container {
+    width: 950px;
+}
+
+main.bajas .container {
+    width: 810px;
+}
+
+.controlAnimacion{
+    padding: 10px 0 20px 0;
+}
+
