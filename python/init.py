@@ -116,6 +116,14 @@ def listaImagenes(fecha):
             'MOD00{}P1048NIEVE_24.1.png'.format(mod),
             640))
 
+    #Imagenes 5,6: Cota de nieve mínima en 24 H. Modelo IFS, HARM 40
+    # Pasadas D-1 00
+    for mod in ['CE', 'HMAR']: 
+        images.append( Imgdata(
+            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/COTANIEMIN_24.1.png'.format(anterior,mod),
+            'MOD00{}P1048COTANIEMIN_24.1.png'.format(mod),
+            640))
+
     # *****************
     # Viento Racha máxima en 24 horas
     # *****************
