@@ -152,9 +152,15 @@ def listaImagenes(fecha):
         'P_Max_0000_24.jpg',
         640))
 
-    #Imagenes 2,3,4: Modelo IFS, HARM 40, HARM 38
+    #Imagen 2: Postproceso
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/postproceso/nuevasTemperaturas/mapas/00/P/ma_1.png'.format(anterior),
+        'postproceso00tmax.png',
+        640))
+
+    #Imagenes 3,4: Modelo IFS, HARM 40
     # Pasadas D-1 00
-    for mod in ['CE', 'HMAR', 'HMAR2']: 
+    for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/TMAX_24.1.png'.format(anterior,mod),
             'MOD00{}P1048TMAX_24.1.png'.format(mod),
@@ -170,9 +176,15 @@ def listaImagenes(fecha):
         'P_Min_0000_24.jpg',
         640))
 
-    #Imagenes 2,3,4: Modelo IFS, HARM 40, HARM 38
+    #Imagen 2: Postproceso
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/postproceso/nuevasTemperaturas/mapas/00/P/mi_1.png'.format(anterior),
+        'postproceso00tmin.png',
+        640))
+
+    #Imagenes 3,4: Modelo IFS, HARM 40
     # Pasadas D-1 00
-    for mod in ['CE', 'HMAR', 'HMAR2']: 
+    for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/TMIN_24.1.png'.format(anterior,mod),
             'MOD00{}P1048TMIN_24.1.png'.format(mod),
