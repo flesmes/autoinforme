@@ -1,53 +1,68 @@
 #!/usr/bin/python
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
+import codecs
 import datetime
+import jinja2
 import os
 import sys
 
 import config
 
+class Pagina:
+  def __init__(self,nombre,descripcion):
+      self.nombre = nombre
+      self.descripcion = descripcion
+
+paginas = [Pagina('sinoptica.html', u'Situación sinóptica'),
+           Pagina('precipitacion.html', u'Precipitación'),
+           Pagina('nieve.html', 'Nieve'),
+           Pagina('viento.html', 'Viento'),
+           Pagina('temperatura.html', 'Temperatura'),
+           Pagina('radar.html', 'Radar'),
+           Pagina('nubesbajas.html', 'Nubes bajas')]
+
 def formatoFecha(fecha):
-    dia = fecha.day
     meses = {1:'Enero', 2:'Febrero', 3:'Marzo', 4:'Abril',
              5:'Mayo', 6:'Junio', 7:'Julio', 8:'Agosto',
              9:'Septiembre', 10:'Octubre', 11:'Noviembre', 12:'Diciembre'}
-    mes = meses[fecha.month]
+    dia = fecha.day
+    mes = fecha.month
     anio = fecha.year
-    return '{} de {} de {}'.format(dia,mes,anio)
+    return {'fechaNatural': '{} de {} de {}'.format(dia,meses[mes],anio),
+            'fechaISO': '{}-{}-{}'.format(anio,mes,dia)}
 
 def generar(fecha):
-    files = ['precipitacion.html',
-             'sinoptica.html',
-             'nieve.html',
-             'viento.html',
-             'temperatura.html',
-             'radar.html',
-             'nubesbajas.html']
+    jinjaEnv = jinja2.Environment(
+        loader = jinja2.FileSystemLoader(config.pathTemplates),
+        autoescape = jinja2.select_autoescape(['html']),
+        trim_blocks = True,
+        lstrip_blocks = True)
 
     # Directorio para guardar imagenes, basado en la fecha
     # Si no existe lo crea
     pathArchivoFecha = config.pathArchivo + '/' + fecha.strftime('%Y%m%d')
-    print('path archivo ' + pathArchivoFecha)
+    print(u'Los archivos html se guardarán en ' + pathArchivoFecha)
     if not os.path.exists(pathArchivoFecha):
         os.mkdir(pathArchivoFecha)
 
-    for file in files:
-        print(file)
-        origen = config.pathTemplates + '/' + file
-        destino = pathArchivoFecha + '/' + file
-        date = 'new Date({},{},{})'.format(fecha.year,
-                                           fecha.month - 1,
-                                           fecha.day)
-        out = open(destino,'w')
-        print(destino)
-        for line in open(origen):
-            line = line.replace('<h1>Informe del</h1>',
-                                '<h1>Informe del ' + formatoFecha(fecha) + '</h1>')
-            line = line.replace('<script>date=</script>',
-                                '<script>date='+date+'</script>')
-            out.write(line)
-        out.close()
+    for pagina in paginas:
+
+        template = jinjaEnv.get_template(pagina.nombre)
+        enlaces = [enlace for enlace in paginas if enlace != pagina]
+        fechaForm = formatoFecha(fecha)
+        variables = {'fecha': fechaForm['fechaNatural'],
+                     'fechaISO': fechaForm['fechaISO'],
+                     'enlaces': enlaces}
+        output = template.render(variables)
+        
+        destino = pathArchivoFecha + '/' + pagina.nombre
+        file = codecs.open(destino,'w',encoding='utf-8')
+        file.write(output)
+        file.close()
+
+        print('Generado ' + pagina.nombre)
+       
         
 def getFecha(args):
     if len(args) == 1:
@@ -57,7 +72,7 @@ def getFecha(args):
     else:
         sys.exit(1);
 
-# Argumentos: A�o mes dia (en n�mero)
+# Argumentos: Año mes dia (en número)
 # Sin argumentos: Fecha de ayer
 # Con argumentos: Fecha indicada
 if __name__=="__main__":

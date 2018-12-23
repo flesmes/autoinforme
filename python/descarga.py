@@ -10,6 +10,10 @@ import config
 
 def descargarURL(remoto,local):
     r = requests.get(remoto)
+    #print
+    print('descargado ' + remoto)
+    #print r.headers;
+    #print r.request.headers
     lfile = open(local, 'wb')
     lfile.write(r.content)
     lfile.close()
@@ -35,7 +39,7 @@ def descargarImagenes( images, fecha):
 
     # Directorio para guardar imagenes, basado en la fecha
     dirArchivoFecha = config.pathArchivo + '/' + fecha.strftime('%Y%m%d')
-    print('directorio archivo ' + dirArchivoFecha)
+    print(u'Las imagenes se guardarán en ' + dirArchivoFecha)
         
     # Crea el directorio de archivo
     # Si ya existe, lo borra antes de crearlo
@@ -52,10 +56,13 @@ def descargarImagenes( images, fecha):
         local = dirArchivoFecha + '/' + image.localfile
         try:
             descargarURL(image.remotefile, local);
-            redimensionar(local, image.width)
+            #print('Descargado {}'.format(image.remotefile))
         except:
-            print('No se ha podido descargar {}'.format(image.remotefile))
-            shutil.copyfile(path + '/templates/nodisponibler.png', local)
+            print('Fallo descargando {}'.
+                  format(image.remotefile))
+            shutil.copyfile(config.pathTemplates + '/nodisponibler.png',
+                            local)
+        redimensionar(local, image.width)
         
 
 

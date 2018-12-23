@@ -27,24 +27,14 @@ function toDate(fecha){
     return new Date(any,mes,dia);
 }
 
-function formatoDate(date){
-    var dia = pad(date.getDate());
-    var mes = pad((date.getMonth() + 1));
-    var any = date.getFullYear().toString();
-    return any + mes + dia;
-}
-
-function formatoAntiguo(date){
-    var dia = pad(date.getDate());
-    var mes = pad((date.getMonth() + 1));
-    var any = date.getFullYear().toString();
-    return any + '_' + mes + '_' + dia;
-}
-
 function cambiarFecha(date) {
     var url;
-    if (date - fechaInicioArchivo >= 0)
-	url = '../' + formatoFecha(date,'YYYYMMDD') + '/' + file;
+    console.log(date)
+    console.log(fechaInicioArchivo)
+    console.log(date >= fechaInicioArchivo)
+    if (date >= fechaInicioArchivo)
+	url = '../' + formatoFecha(date,'YYYYMMDD') + '/' +
+	      location.href.split("/").slice(-1);
     else
 	url = 'http://172.24.139.32/autoinforme/auto_info_OK/Auto_informe/auto_informe_' + formatoFecha(date,'YYYY_MM_DD') + '/auto_info.html';
     window.location.href = url;
@@ -70,10 +60,10 @@ function nuevaFecha(){
     cambiarFecha(toDate(calendario.value));
 }
 
-var fechaInicioArchivo = new Date(2018,11,14);
+var fechaInicioArchivo = new Date(2018,11,21);
 
 var calendario = document.querySelector('#calenda');
-calendario.value = formatoFecha(date,'YYYY-MM-DD')
+var date = toDate(calendario.value);
 calendario.addEventListener('change', nuevaFecha);
 
 

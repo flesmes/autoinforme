@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Informe Diario</title>
+    <link rel="stylesheet" href="../../css/main.css">
+  </head>
+  
+  <body>
+
+    <header>
+      
+      <h1>Informe del {{fecha}}</h1>
+
+      <span class="navegacionFecha">
+	<div class="anteriorPosterior">
+	  <button id="anterior">Día anterior</button>
+	  <button id="posterior">Día posterior</button>
+	</div>
+	<input type="date" value="{{fechaISO}}" id="calenda">
+      </span>
+
+      <div class = "navegacion">
+	{% for enlace in enlaces %}
+	<a href="{{enlace.nombre}}"> {{enlace.descripcion}} </a>
+	{% endfor %}
+      </div>
+      
+    </header>
+
+    {% block main %}
+    {% endblock main %}
+
+    {% block script %}
+    <script src="../../js/jquery.3.3.1.min.js"></script>
+    <script src="../../js/main.js"></script>
+    {%- endblock script %}
+    
+  </body>
+</html>

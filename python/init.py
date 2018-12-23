@@ -203,8 +203,8 @@ def listaImagenes(fecha):
             'SAT{}NWCSAF_MNP100_CT_Bajas.PNG'.format(hora),
             810))
 
-    for image in images:
-        print(image.remotefile)
+#    for image in images:
+#        print(image.remotefile)
                 
     return images
 

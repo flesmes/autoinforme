@@ -1,56 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>Informe Diario</title>
-    <link rel="stylesheet" href="../../css/main.css">
-  </head>
-  <body>
+{% extends "animacion.html" %}
 
-    <header>
-      <h1>Informe del</h1>
-
-      <span class="navegacionFecha">
-	<div class="anteriorPosterior">
-	  <button id="anterior">Día anterior</button>
-	  <button id="posterior">Día posterior</button>
-	</div>
-	<input type="date" placeholder="aaaa-mm-dd" value="aaaa-mm-dd" id="calenda">
-      </span>
-
-    <div class = "navegacion">
-      <a href="sinoptica.html"> Situación sinóptica</a>
-      <a href="precipitacion.html"> Precipitación </a>
-      <a href="nieve.html"> Nieve </a>
-      <a href="viento.html"> Viento </a>
-      <a href="temperatura.html"> Temperatura </a>
-      <a href="nubesbajas.html"> Nubes bajas </a>
-    </div>
-    
-    </header>
+{% block main %}
     <main class="radar">
 
       <h2 class="central"> Radar. Diagnóstico 2D </h2>
 
       <div class="container">
-	<div class="controlAnimacion">
-	  <button id="prev">      Anterior </button>
-	  <button id="siguiente"> Siguiente </button>
-	  <button id="animar">    Animar </button>
-	  <button id="parar">     Parar </button>
-	</div>
-		
+{{super()}}
 	<img class="animacion radar" src="RAD00NAC00_RA2D.PNG">
-	
       </div>
 
     </main>
+{% endblock main %}
 
-    <script>file='sinoptica.html'</script>
-    <script>date=</script>
-    <script src="../../js/jquery.3.3.1.min.js"></script>
-    <script src="../../js/main.js"></script>
-    <script src="../../js/animacion.js"></script>
-    
-  </body>
-</html>

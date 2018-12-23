@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main %}
+	<div class="controlAnimacion">
+	  <button id="prev">      Anterior </button>
+	  <button id="siguiente"> Siguiente </button>
+	  <button id="animar">    Animar </button>
+	  <button id="parar">     Parar </button>
+	</div>
+{% endblock main %}
+
+{% block script %}
+{{super()}}
+    <script src="../../js/animacion.js"></script>
+{% endblock script %}
+
