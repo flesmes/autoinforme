@@ -10,7 +10,7 @@
 
     <header>
       
-      <h1>Informe del {{fecha}}</h1>
+      <h1>Informe del {{fechaNatural}}</h1>
 
       <span class="navegacionFecha">
 	<div class="anteriorPosterior">
@@ -18,8 +18,10 @@
 	  <button id="posterior">Día posterior</button>
 	</div>
 	<input type="date" id="calendario">
-	<input type="hidden" value="{{fechaISO}}" id="hidden">
-	<button id="cambiarDia">Cambiar dia</button>
+	<input type="hidden"
+	       value="{{fecha.any}}-{{fecha.mes}}-{{fecha.dia}}"
+	       id="hidden">
+	<button id="cambiarDia">Cambiar día</button>
       </span>
 
       <div class = "navegacion">

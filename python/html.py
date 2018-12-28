@@ -22,15 +22,20 @@ paginas = [Pagina('sinoptica.html', u'Situación sinóptica'),
            Pagina('radar.html', 'Radar'),
            Pagina('nubesbajas.html', 'Nubes bajas')]
 
-def formatoFecha(fecha):
+class Fecha:
+  def __init__(self,date):
+    self.dia = date.strftime('%d')
+    self.mes = date.strftime('%m')
+    self.any = date.strftime('%Y')
+
+def fechaNatural(fecha):
     meses = {1:'Enero', 2:'Febrero', 3:'Marzo', 4:'Abril',
              5:'Mayo', 6:'Junio', 7:'Julio', 8:'Agosto',
              9:'Septiembre', 10:'Octubre', 11:'Noviembre', 12:'Diciembre'}
     dia = fecha.day
     mes = fecha.month
     anio = fecha.year
-    return {'fechaNatural': '{} de {} de {}'.format(dia,meses[mes],anio),
-            'fechaISO': '{}-{}-{}'.format(anio,mes,dia)}
+    return '{} de {} de {}'.format(dia,meses[mes],anio)
 
 def generar(fecha):
     jinjaEnv = jinja2.Environment(
@@ -50,9 +55,9 @@ def generar(fecha):
 
         template = jinjaEnv.get_template(pagina.nombre)
         enlaces = [enlace for enlace in paginas if enlace != pagina]
-        fechaForm = formatoFecha(fecha)
-        variables = {'fecha': fechaForm['fechaNatural'],
-                     'fechaISO': fechaForm['fechaISO'],
+        variables = {'fecha': Fecha(fecha),
+                     'fechaNatural': fechaNatural(fecha),
+                     'fechaPosterior': Fecha(fecha + datetime.timedelta(1)),
                      'enlaces': enlaces}
         output = template.render(variables)
         

@@ -80,13 +80,26 @@ h2.central{
     font-weight: bold;
 }
 
-.navegacion a:hover {
+.navegacion a:hover,
+.navegacion-chiqui a:hover{
     color: #00008B;
     background: white;
 }
 
+.navegacion-chiqui a {
+    padding: 5px;
+    margin: 0 0 15px 0;
+    border: 2px solid #00008B;
+    display: inline-block;
+    background: #00008B;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    /* font-size: smaller; */
+}
+
 .row {
-    height: 580px;
+    height: 620px;
 }
 
 .left-block {
@@ -100,7 +113,12 @@ h2.central{
 }
 
 .figura h3{
-    padding: 10px 0;
+    padding: 0px 0;
+    margin: 40px 0 10px 0;
+}
+
+.figura h3.nivelado{
+    margin-top: 80px;
 }
 
 img {
