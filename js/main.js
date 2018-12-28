@@ -17,14 +17,20 @@ function formatoFecha(date,formato){
 	.replace('YYYY',any);
 }
 
-
-
-function toDate(fecha){
-    var campos =  fecha.split("-");
+function toDate(fechaiso){
+    var campos = fechaiso.split("-");
     var dia = parseInt(campos[2]);
     var mes = parseInt(campos[1])-1;
     var any = parseInt(campos[0]);
     return new Date(any,mes,dia);
+}
+
+function fechaPagina(){
+    return toDate($('#hidden').val());
+}
+
+function fechaCalendario(){
+    return toDate($('#calendario').val());
 }
 
 function cambiarFecha(date) {
@@ -40,30 +46,26 @@ function cambiarFecha(date) {
     window.location.href = url;
 }
 
-var botonAnterior = document.querySelector('#anterior');
-botonAnterior.addEventListener("click", function(){
-    var dateAnterior = new Date(date.getTime());
-    dateAnterior.setDate(date.getDate()-1);
-    cambiarFecha(dateAnterior);
-});
-
-var botonPosterior = document.querySelector('#posterior');
-botonPosterior.addEventListener("click", function(){
-    var datePosterior = new Date(date.getTime());
-    datePosterior.setDate(date.getDate()+1);
-    cambiarFecha(datePosterior);
-});
-
-function nuevaFecha(){
-    console.log("clickLoad");
-    console.log(toDate(calendario.value));
-    cambiarFecha(toDate(calendario.value));
+function moverFecha(date, dias){
+    var nuevaFecha = new Date(date.getTime());
+    nuevaFecha.setDate(nuevaFecha.getDate() + dias);
+    cambiarFecha(nuevaFecha);
 }
 
 var fechaInicioArchivo = new Date(2018,11,26);
 
-var calendario = document.querySelector('#calenda');
-var date = toDate(calendario.value);
-calendario.addEventListener('change', nuevaFecha);
+$('#calendario').val($('#hidden').val())
+
+$('#anterior').click(function(){
+    moverFecha(fechaPagina(),-1);
+});
+
+$('#posterior').click(function(){
+   moverFecha(fechaPagina(),1)
+});
+
+$('#cambiarDia').click(function(){
+    cambiarFecha(fechaCalendario());
+});
 
 
