@@ -60,7 +60,7 @@ function nuevaFecha(){
     cambiarFecha(toDate(calendario.value));
 }
 
-var fechaInicioArchivo = new Date(2018,11,21);
+var fechaInicioArchivo = new Date(2018,11,26);
 
 var calendario = document.querySelector('#calenda');
 var date = toDate(calendario.value);

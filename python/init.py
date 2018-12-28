@@ -14,7 +14,8 @@ def listaImagenes(fecha):
 
     actual = fecha.strftime('%Y%m%d')
     anterior = (fecha - datetime.timedelta(1)).strftime('%Y%m%d')
-    siguiente = (fecha + datetime.timedelta(1)).strftime('%d%m%Y')
+    siguiente = (fecha + datetime.timedelta(1)).strftime('%Y%m%d')
+    siguiente_inv = (fecha + datetime.timedelta(1)).strftime('%d%m%Y')
     
     # *****************
     # Situación sinóptica
@@ -62,7 +63,7 @@ def listaImagenes(fecha):
 
     #Imagen 1: Precipitación 24 H observada 
     images.append( Imgdata(
-        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Prec_{}_0000_24.jpg'.format(siguiente),
+        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Prec_{}_0000_24.jpg'.format(siguiente_inv),
         'P_Prec_0000_24.jpg',
         640))
 
@@ -104,7 +105,7 @@ def listaImagenes(fecha):
 
     #Imagen 1: Nieve 24 H estimada 
     images.append( Imgdata(
-        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Nieve_{}_0000_24.jpg'.format(siguiente),
+        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Nieve_{}_0000_24.jpg'.format(siguiente_inv),
         'P_Nieve_0000_24.jpg',
         640))
 
@@ -130,7 +131,7 @@ def listaImagenes(fecha):
 
     #Imagen 1: Observada
     images.append( Imgdata(
-        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Racha_{}_0000_24.jpg'.format(siguiente),
+        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Racha_{}_0000_24.jpg'.format(siguiente_inv),
         'P_Racha_0000_24.jpg',
         640))
 
@@ -148,7 +149,7 @@ def listaImagenes(fecha):
 
     #Imagen 1: Observada
     images.append( Imgdata(
-        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Max_{}_0000_24.jpg'.format(siguiente),
+        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Max_{}_0000_24.jpg'.format(siguiente_inv),
         'P_Max_0000_24.jpg',
         640))
 
@@ -172,7 +173,7 @@ def listaImagenes(fecha):
 
     #Imagen 1: Observada
     images.append( Imgdata(
-        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Min_{}_0000_24.jpg'.format(siguiente),
+        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Min_{}_0000_24.jpg'.format(siguiente_inv),
         'P_Min_0000_24.jpg',
         640))
 
@@ -222,6 +223,31 @@ def listaImagenes(fecha):
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/SAT/{}/NWCSAF_MN/P1/00_CT_Bajas.PNG'.format(actual,hora),
             'SAT{}NWCSAF_MNP100_CT_Bajas.PNG'.format(hora),
             810))
+
+    # *****************
+    # Rayos
+    # *****************
+
+    #Imagen 1: Rayos 24 H observados 
+    images.append( Imgdata(
+        'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Rayos_{}_0000_24.jpg'.format(siguiente_inv),
+        'P_Rayos_0000_24.jpg',
+        640))
+
+    #Imagen 2: Rayos 24 H observados 
+    images.append( Imgdata(
+        'http://sureste.inm.es/stapwww/archivotemporal/{}/RAD/00/NAC/00_RAY_24h.PNG'.format(siguiente),
+        'RAY_24h.PNG',
+        640))
+
+    # Harmonie. Densidad de rayos
+    for i in ['0', '1']: 
+        images.append( Imgdata(
+            'http://noreste.aemet.es/pn33/ngiv-r/iberia/img0/s{}-24.png'.format(i),
+            'rayos_harmonie_d{}.png'.format(i),
+            640))
+
+
 
 #    for image in images:
 #        print(image.remotefile)

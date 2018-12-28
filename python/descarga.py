@@ -39,7 +39,7 @@ def descargarImagenes( images, fecha):
 
     # Directorio para guardar imagenes, basado en la fecha
     dirArchivoFecha = config.pathArchivo + '/' + fecha.strftime('%Y%m%d')
-    print(u'Las imagenes se guardarán en ' + dirArchivoFecha)
+    print('Las imagenes se guardarán en ' + dirArchivoFecha)
         
     # Crea el directorio de archivo
     # Si ya existe, lo borra antes de crearlo
