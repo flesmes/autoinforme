@@ -17,6 +17,7 @@ class Pagina:
 paginas = [Pagina('sinoptica.html', u'Situación sinóptica'),
            Pagina('precipitacion.html', u'Precipitación'),
            Pagina('nieve.html', 'Nieve'),
+           Pagina('rayos.html', 'Rayos'),
            Pagina('viento.html', 'Viento'),
            Pagina('temperatura.html', 'Temperatura'),
            Pagina('radar.html', 'Radar'),

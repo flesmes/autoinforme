@@ -1,5 +1,6 @@
 # -*- coding: latin-1 -*-
 
+import datetime
 import PIL.Image
 import os
 import re
@@ -34,26 +35,37 @@ def redimensionar(path, anchura):
         extension = '.png'
 
     img_redim.save(nombre+extension)
+
+def tieneDirectorio(path):
+    return len(path.split('/')) > 1
     
 def descargarImagenes( images, fecha):
 
-    # Directorio para guardar imagenes, basado en la fecha
-    dirArchivoFecha = config.pathArchivo + '/' + fecha.strftime('%Y%m%d')
-    print('Las imagenes se guardarán en ' + dirArchivoFecha)
-        
-    # Crea el directorio de archivo
-    # Si ya existe, lo borra antes de crearlo
+    dmas1 = fecha + datetime.timedelta(1)
+    dmas2 = fecha + datetime.timedelta(2)
+
+    directoriosArchivo = \
+      [config.pathArchivo + '/' + dia.strftime('%Y%m%d') \
+       for dia in [fecha, dmas1, dmas2]]
+    #default
+    dirArchivoFecha = directoriosArchivo[0]
     
-    if os.path.exists(dirArchivoFecha):
-        shutil.rmtree(dirArchivoFecha)
-    os.mkdir(dirArchivoFecha)
+    # Si no existen los directorios de archivo, los crea
+    for dir in directoriosArchivo:
+        if not os.path.exists(dir):
+            os.mkdir(dir)
 
     # Para cada imagen;
     # descarga la imagen
     # redimensiona la imagen
     
     for image in images:
-        local = dirArchivoFecha + '/' + image.localfile
+
+        if tieneDirectorio(image.localfile):
+            local = config.pathArchivo + '/' + image.localfile
+        else:
+            local = dirArchivoFecha + '/' + image.localfile
+
         try:
             descargarURL(image.remotefile, local);
             #print('Descargado {}'.format(image.remotefile))

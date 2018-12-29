@@ -21,4 +21,4 @@
 #
 # m h  dom mon dow   command
 #
-00 06 * * * /home/felipe/desarrollo/autoinforme2.0/python/autoinforme.py > /home/felipe/desarrollo/autoinforme2.0/log/autoinforme.log 2>&1
+00 08 * * * /home/felipe/desarrollo/autoinforme2.0/python/autoinforme.py > /home/felipe/desarrollo/autoinforme2.0/log/autoinforme.log 2>&1

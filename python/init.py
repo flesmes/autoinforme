@@ -14,6 +14,7 @@ def listaImagenes(fecha):
 
     anterior = fecha - datetime.timedelta(1)
     siguiente = fecha + datetime.timedelta(1)
+    dmas2 = fecha + datetime.timedelta(2)
     
     # *****************
     # Situación sinóptica
@@ -241,15 +242,22 @@ def listaImagenes(fecha):
     #Imagen 2: Rayos 24 H observados 
     images.append( Imgdata(
         'http://sureste.inm.es/stapwww/archivotemporal/{}/RAD/00/NAC/00_RAY_24h.PNG'.format(siguiente.strftime('%Y%m%d')),
-        'RAY_24h.PNG',
+        'rayos_24h.png',
         640))
 
     # Harmonie. Densidad de rayos
-    for i in ['0', '1']: 
-        images.append( Imgdata(
-            'http://noreste.aemet.es/pn33/ngiv-r/iberia/img0/s{}-24.png'.format(i),
-            'rayos_harmonie_d{}.png'.format(i),
-            640))
+    # D+1
+    images.append( Imgdata(
+        'http://noreste.aemet.es/pn33/ngiv-r/iberia/img0/s0-24.png',
+        '{}/rayos_harmonie_d1.png'.format(siguiente.strftime('%Y%m%d')),
+        640))
+
+    # Harmonie. Densidad de rayos
+    # D+2
+    images.append( Imgdata(
+        'http://noreste.aemet.es/pn33/ngiv-r/iberia/img0/s1-24.png',
+        '{}/rayos_harmonie_d2.png'.format(dmas2.strftime('%Y%m%d')),
+        640))
 
 
 

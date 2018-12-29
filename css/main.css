@@ -102,6 +102,10 @@ h2.central{
     height: 620px;
 }
 
+div.rayos {
+    height: 700px;
+}
+
 .left-block {
     display:inline-block;
     width: 270px;
