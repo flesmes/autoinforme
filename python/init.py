@@ -250,14 +250,14 @@ def listaImagenes(fecha):
     images.append( Imgdata(
         'http://noreste.aemet.es/pn33/ngiv-r/iberia/img0/s0-24.png',
         '{}/rayos_harmonie_d1.png'.format(siguiente.strftime('%Y%m%d')),
-        640))
+        696))
 
     # Harmonie. Densidad de rayos
     # D+2
     images.append( Imgdata(
         'http://noreste.aemet.es/pn33/ngiv-r/iberia/img0/s1-24.png',
         '{}/rayos_harmonie_d2.png'.format(dmas2.strftime('%Y%m%d')),
-        640))
+        696))
 
 
 

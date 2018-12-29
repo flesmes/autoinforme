@@ -1,6 +1,7 @@
 body {
     background: white;
     color: navy;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 header,
@@ -124,6 +125,11 @@ div.rayos {
 
 img {
     /*width: 640px;*/
+}
+
+img.rayos_harm{
+    margin: -10px -36px;
+    width: 696px;
 }
 
 img.radar {
