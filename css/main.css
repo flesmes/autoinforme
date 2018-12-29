@@ -53,19 +53,6 @@ input{
     width: 140px; 
 }
 
-select {
-    color: navy;
-}
-
-h2 {
-    padding: 20px 0 20px 0;
-    margin: 0;
-}
-
-h2.central{
-    text-align: center;
-}
-
 .navegacion {
     margin: 10px 0 50px 0;
 }
@@ -88,7 +75,7 @@ h2.central{
 
 .navegacion-chiqui a {
     padding: 5px;
-    margin: 0 0 15px 0;
+    margin: 0 0 40px 0;
     border: 2px solid #00008B;
     display: inline-block;
     background: #00008B;
@@ -96,6 +83,19 @@ h2.central{
     text-decoration: none;
     font-weight: bold;
     /* font-size: smaller; */
+}
+
+h2 {
+    padding: 20px 0 20px 0;
+    margin: 0;
+}
+
+h2.central{
+    text-align: center;
+}
+
+select {
+    color: navy;
 }
 
 .row {
@@ -118,11 +118,7 @@ div.rayos {
 
 .figura h3{
     padding: 0px 0;
-    margin: 40px 0 10px 0;
-}
-
-.figura h3.nivelado{
-    margin-top: 80px;
+    margin: 20px 0 10px 0;
 }
 
 img {

@@ -4,6 +4,13 @@
     <main>
       
       <h2>Precipitación en 24 horas</h2>
+
+      <div class="navegacion-chiqui">
+	<a href="http://veleta2.inm.es/~sema/nacha.cgi?ano={{fechaPosterior.any}}&mes={{fechaPosterior.mes}}&day={{fechaPosterior.dia}}&hora=0&min=0&lat=42N&lon=00E&esc=08&vp24=P24" target="_blank">SAIH</a>
+	<a href="https://www.avamet.org/mx-meteoxarxa.php?id={{fecha.any}}-{{fecha.mes}}-{{fecha.dia}}" target="_blank">Avamet</a>
+	<a href="http://www.meteo.cat/observacions/xema?dia={{fecha.any}}-{{fecha.mes}}-{{fecha.dia}}T00:00Z" target="_blank">Meteocat</a>
+      </div>
+      
       <select name="pasada" id="choose">
 	<option value=1 selected>Pasada D   00</option>
 	<option value=2>Pasada D-1 12</option>
@@ -13,15 +20,10 @@
 	<div class="row">
 	  <div class="figura">
 	    <h3>OBSERVADO</h3>
-      <div class="navegacion-chiqui">
-	<a href="http://veleta2.inm.es/~sema/nacha.cgi?ano={{fechaPosterior.any}}&mes={{fechaPosterior.mes}}&day={{fechaPosterior.dia}}&hora=0&min=0&lat=42N&lon=00E&esc=08&vp24=P24" target="_blank">SEMA SAIH</a>
-	<a href="https://www.avamet.org/mx-meteoxarxa.php?id={{fecha.any}}-{{fecha.mes}}-{{fecha.dia}}" target="_blank">Avamet</a>
-	<a href="http://www.meteo.cat/observacions/xema?dia={{fecha.any}}-{{fecha.mes}}-{{fecha.dia}}T00:00Z" target="_blank">Meteocat</a>
-      </div>
 	    <img src="P_Prec_0000_24.jpg">
 	  </div>
 	  <div class="figura">
-	    <h3 class="nivelado">HRES-IFS</h3>
+	    <h3>HRES-IFS</h3>
 	    <img src="MOD00CEP1024PCP_24.1.png">
 	  </div>
 	</div>
