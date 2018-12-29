@@ -243,7 +243,7 @@ def listaImagenes(fecha):
     images.append( Imgdata(
         'http://sureste.inm.es/stapwww/archivotemporal/{}/RAD/00/NAC/00_RAY_24h.PNG'.format(siguiente.strftime('%Y%m%d')),
         'rayos_24h.png',
-        640))
+        480))
 
     # Harmonie. Densidad de rayos
     # D+1
