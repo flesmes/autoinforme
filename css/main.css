@@ -95,6 +95,10 @@ h2.central{
     text-align: center;
 }
 
+h2.boletin-head{
+    padding-bottom: 0;
+}
+
 select {
     color: navy;
 }
@@ -156,11 +160,18 @@ main.bajas .container {
     padding: 10px 0 20px 0;
 }
 
-.boletin {
+div.boletin {
     display: inline-block;
     vertical-align: top;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     width: 640px;
 }
 
+h3.boletin-head {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
 
+h3.boletin {
+    margin-top: 50px;
+}
