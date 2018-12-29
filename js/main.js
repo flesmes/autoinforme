@@ -52,7 +52,7 @@ function moverFecha(date, dias){
     cambiarFecha(nuevaFecha);
 }
 
-var fechaInicioArchivo = new Date(2018,11,26);
+var fechaInicioArchivo = new Date(2018,11,28);
 
 $('#calendario').val($('#hidden').val())
 

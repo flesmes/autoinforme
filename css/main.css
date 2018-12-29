@@ -156,3 +156,11 @@ main.bajas .container {
     padding: 10px 0 20px 0;
 }
 
+.boletin {
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 30px;
+    width: 640px;
+}
+
+

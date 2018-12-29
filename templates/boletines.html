@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <main>
+      
+      <h2>Boletines. Predicción para el {{fechaNatural}}</h2>
+      <div>
+	<h3>CATALUÑA</h3>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-2</h4>
+	  {{bolcat2}}
+	</div>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-1</h4>
+	  {{bolcat1}}
+	</div>
+      </div>
+
+	<h3>ARAGÓN</h3>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-2</h4>
+	  {{bolara2}}
+	</div>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-1</h4>
+	  {{bolara1}}
+	</div>
+      </div>
+
+	<h3>VALENCIA</h3>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-2</h4>
+	  {{bolval2}}
+	</div>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-1</h4>
+	  {{bolval1}}
+	</div>
+      </div>
+
+	<h3>ILLES BALEARS</h3>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-2</h4>
+	  {{bolbal2}}
+	</div>
+	
+	<div class="boletin">
+	  <h4>Realizada en D-1</h4>
+	  {{bolbal1}}
+	</div>
+      </div>
+
+    </main>
+{% endblock main %}
+

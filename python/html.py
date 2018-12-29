@@ -7,6 +7,7 @@ import jinja2
 import os
 import sys
 
+import boletines
 import config
 
 class Pagina:
@@ -21,6 +22,7 @@ paginas = [Pagina('sinoptica.html', u'Situación sinóptica'),
            Pagina('viento.html', 'Viento'),
            Pagina('temperatura.html', 'Temperatura'),
            Pagina('radar.html', 'Radar'),
+           Pagina('boletines.html', 'Boletines'),
           ]
 
 class Fecha:
@@ -41,7 +43,6 @@ def fechaNatural(fecha):
 def generar(fecha):
     jinjaEnv = jinja2.Environment(
         loader = jinja2.FileSystemLoader(config.pathTemplates),
-        autoescape = jinja2.select_autoescape(['html']),
         trim_blocks = True,
         lstrip_blocks = True)
 
@@ -52,14 +53,21 @@ def generar(fecha):
     if not os.path.exists(pathArchivoFecha):
         os.mkdir(pathArchivoFecha)
 
+    variables = {}
+    variables['fecha'] = Fecha(fecha)
+    variables['fechaNatural'] = fechaNatural(fecha)
+    variables['fechaPosterior'] = Fecha(fecha + datetime.timedelta(1))
+
+    for area in ['cat', 'ara', 'val', 'bal']:
+        for alcance in [1,2]:
+            key = 'bol{}{}'.format(area,alcance)
+            variables[key] = boletines.descargarBoletin(fecha,alcance,area)
+        
     for pagina in paginas:
 
         template = jinjaEnv.get_template(pagina.nombre)
-        enlaces = [enlace for enlace in paginas if enlace != pagina]
-        variables = {'fecha': Fecha(fecha),
-                     'fechaNatural': fechaNatural(fecha),
-                     'fechaPosterior': Fecha(fecha + datetime.timedelta(1)),
-                     'enlaces': enlaces}
+        variables['enlaces'] = \
+            [enlace for enlace in paginas if enlace != pagina]
         output = template.render(variables)
         
         destino = pathArchivoFecha + '/' + pagina.nombre
