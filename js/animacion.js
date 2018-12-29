@@ -6,11 +6,11 @@ var animacionId;
 var imgAnimacion = $('img.animacion');
 
 function cambiarImg(i) {
-    if (imgAnimacion.hasClass('radar'))
-	var nombre = (i<10 ? 'RAD0' : 'RAD') + i + 'NAC00_RA2D.PNG';
-    if (imgAnimacion.hasClass('bajas'))
-	var nombre = (i<10 ? 'SAT0' : 'SAT') + i + 'NWCSAF_MNP100_CT_Bajas.PNG';
-    imgAnimacion.attr('src',nombre);
+    var nombre;
+    nombre = (i<10 ? 'RAD0' : 'RAD') + i + 'NAC00_RA2D.PNG';
+    $('#radar-2d').attr('src',nombre);
+    nombre = (i<10 ? 'RAD0' : 'RAD') + i + 'NAC00_ACC.PNG';
+    $('#radar-acc').attr('src',nombre);
 }
 
 function siguiente() {
@@ -45,12 +45,12 @@ function pararListener() {
     }
 }
 
-$('#prev').click(anteriorListener);
+$('button.prev').click(anteriorListener);
 
-$('#siguiente').click(siguienteListener);
+$('button.siguiente').click(siguienteListener);
 
-$('#animar').click(animarListener);
+$('button.animar').click(animarListener);
 
-$('#parar').click(pararListener);
+$('button.parar').click(pararListener);
 
 

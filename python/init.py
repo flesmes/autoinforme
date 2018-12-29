@@ -211,6 +211,10 @@ def listaImagenes(fecha):
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/RAD/{}/NAC/00_RA2D.PNG'.format(fecha.strftime('%Y%m%d'),hora),
             'RAD{}NAC00_RA2D.PNG'.format(hora),
             950))
+        images.append( Imgdata(
+            'http://sureste.aemet.es/stapwww/archivotemporal/{}/RAD/{}/NAC/00_ACC.PNG'.format(fecha.strftime('%Y%m%d'),hora),
+            'RAD{}NAC00_ACC.PNG'.format(hora),
+            950))
 
     # *****************
     # Nubes bajas
@@ -219,15 +223,15 @@ def listaImagenes(fecha):
     # IR10.8 y clases CT
 
 
-    for h in range(24):
-        if h < 10:
-            hora = '0' + str(h)
-        else:
-            hora = str(h)
-        images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/SAT/{}/NWCSAF_MN/P1/00_CT_Bajas.PNG'.format(fecha.strftime('%Y%m%d'),hora),
-            'SAT{}NWCSAF_MNP100_CT_Bajas.PNG'.format(hora),
-            810))
+#    for h in range(24):
+#        if h < 10:
+#            hora = '0' + str(h)
+#        else:
+#            hora = str(h)
+#        images.append( Imgdata(
+#            'http://sureste.aemet.es/stapwww/archivotemporal/{}/SAT/{}/NWCSAF_MN/P1/00_CT_Bajas.PNG'.format(fecha.strftime('%Y%m%d'),hora),
+#            'SAT{}NWCSAF_MNP100_CT_Bajas.PNG'.format(hora),
+#            810))
 
     # *****************
     # Rayos
