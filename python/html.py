@@ -21,7 +21,7 @@ paginas = [Pagina('sinoptica.html', u'Situación sinóptica'),
            Pagina('viento.html', 'Viento'),
            Pagina('temperatura.html', 'Temperatura'),
            Pagina('radar.html', 'Radar'),
-           Pagina('nubesbajas.html', 'Nubes bajas')]
+          ]
 
 class Fecha:
   def __init__(self,date):
