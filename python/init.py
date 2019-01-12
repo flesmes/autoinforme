@@ -2,6 +2,12 @@
 
 import datetime
 
+# Lista de imagenes a descargar.
+# Se incluye:
+# remotefile - url de la imagen
+# localfile  - nombre del archivo local
+# width      - anchura de la imagen redimensionada
+
 class Imgdata:
 
     def __init__(self,remoto,local,width):
@@ -264,9 +270,5 @@ def listaImagenes(fecha):
         696))
 
 
-
-#    for image in images:
-#        print(image.remotefile)
-                
     return images
 

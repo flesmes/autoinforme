@@ -8,6 +8,12 @@ import descarga
 import html
 import init
 
+# Obtener fecha a partir de los argumentos (si los hay)
+# o si no la fecha de ayer
+# Argumentos: Año mes dia (en número)
+# Sin argumentos: Fecha de ayer
+# Con argumentos: Fecha indicada
+
 def getFecha(args):
     if len(args) == 1:
         return datetime.date.today() - datetime.timedelta(1);
@@ -16,9 +22,6 @@ def getFecha(args):
     else:
         sys.exit(1);
 
-# Argumentos: Año mes dia (en número)
-# Sin argumentos: Fecha de ayer
-# Con argumentos: Fecha indicada
 fecha = getFecha(sys.argv)
 
 imagenes = init.listaImagenes(fecha)

@@ -9,16 +9,16 @@ import shutil
 
 import config
 
-def descargarURL(remoto,local):
-    r = requests.get(remoto)
-    #print
-    print('descargado ' + remoto)
-    #print r.headers;
-    #print r.request.headers
-    lfile = open(local, 'wb')
+# descargar URL en archivo
+def descargarURL(url,archivo):
+    r = requests.get(url)
+    print('descargado ' + url)
+    lfile = open(archivo, 'wb')
     lfile.write(r.content)
     lfile.close()
-    
+
+# redimensionar imagen para anchura determinada,
+# sin cambiar relación anchura-altura
 def redimensionar(path, anchura):
     img_ini = PIL.Image.open(path).convert('RGB')
     (anchura_ini,altura_ini) = img_ini.size
@@ -36,19 +36,27 @@ def redimensionar(path, anchura):
 
     img_redim.save(nombre+extension)
 
+# path incluye directorio  
 def tieneDirectorio(path):
     return len(path.split('/')) > 1
+
+# descargar imagenes
+# images - lista de archivos de imagenes
+# fecha - día del informe
+def descargarImagenes( images, fechaD):
+
+    # La mayor parte de las imágenes se guardan en la
+    # carpeta correspondiente al día D (día del informe)
+    # Pero algunas se guardan en las carpetas del día D+1 y D+2
     
-def descargarImagenes( images, fecha):
-
-    dmas1 = fecha + datetime.timedelta(1)
-    dmas2 = fecha + datetime.timedelta(2)
-
+    fechaD1 = fechaD + datetime.timedelta(1)
+    fechaD2 = fechaD + datetime.timedelta(2)
+   
     directoriosArchivo = \
       [config.pathArchivo + '/' + dia.strftime('%Y%m%d') \
-       for dia in [fecha, dmas1, dmas2]]
-    #default
-    dirArchivoFecha = directoriosArchivo[0]
+       for dia in [fechaD, fechaD1, fechaD2]]
+    dirArchivoFechaD = directoriosArchivo[0]
+    print('Las imágenes se guardarán en ' + dirArchivoFechaD)
     
     # Si no existen los directorios de archivo, los crea
     for dir in directoriosArchivo:
@@ -61,20 +69,23 @@ def descargarImagenes( images, fecha):
     
     for image in images:
 
+        # Las imagenes que se archivan en la carpeta del día D
+        # no llevan el nombre del directorio en el path de la imagen.
+        # Las que se archivan el directorio del día D+1 o D+2, sí
         if tieneDirectorio(image.localfile):
             local = config.pathArchivo + '/' + image.localfile
         else:
-            local = dirArchivoFecha + '/' + image.localfile
+            local = dirArchivoFechaD + '/' + image.localfile
 
         try:
             descargarURL(image.remotefile, local);
             #print('Descargado {}'.format(image.remotefile))
+            redimensionar(local, image.width)
         except:
             print('Fallo descargando {}'.
                   format(image.remotefile))
             shutil.copyfile(config.pathTemplates + '/nodisponibler.png',
                             local)
-        redimensionar(local, image.width)
         
 
 

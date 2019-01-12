@@ -31,6 +31,7 @@ class Fecha:
     self.mes = date.strftime('%m')
     self.any = date.strftime('%Y')
 
+# fecha en formato "Dia de Mes de Año"
 def fechaNatural(fecha):
     meses = {1:'Enero', 2:'Febrero', 3:'Marzo', 4:'Abril',
              5:'Mayo', 6:'Junio', 7:'Julio', 8:'Agosto',
@@ -40,7 +41,9 @@ def fechaNatural(fecha):
     anio = fecha.year
     return '{} de {} de {}'.format(dia,meses[mes],anio)
 
+# generar archivos HTML  
 def generar(fecha):
+  
     jinjaEnv = jinja2.Environment(
         loader = jinja2.FileSystemLoader(config.pathTemplates),
         trim_blocks = True,
@@ -58,6 +61,7 @@ def generar(fecha):
     variables['fechaNatural'] = fechaNatural(fecha)
     variables['fechaPosterior'] = Fecha(fecha + datetime.timedelta(1))
 
+    # Descargar boletines
     for area in ['cat', 'ara', 'val', 'bal']:
         for alcance in [1,2]:
             key = 'bol{}{}'.format(area,alcance)
@@ -66,10 +70,16 @@ def generar(fecha):
     for pagina in paginas:
 
         template = jinjaEnv.get_template(pagina.nombre)
+
+        # Filtrado de enlaces.
+        # Las páginas no deben incluir enlaces a sí mismas
         variables['enlaces'] = \
             [enlace for enlace in paginas if enlace != pagina]
+
+        # Generación del contenido de la página a partir de una plantilla
         output = template.render(variables)
-        
+
+        # El contenido de la página se guarda en archivo
         destino = pathArchivoFecha + '/' + pagina.nombre
         file = codecs.open(destino,'w',encoding='utf-8')
         file.write(output)
@@ -86,9 +96,14 @@ def getFecha(args):
     else:
         sys.exit(1);
 
+# Este script se puede utilizar como módulo importado o como main.
+# Si se utiliza como main, la fecha se obtiene 
+# a partir de los argumentos (si los hay)
+# o si no, por defecto, de la fecha de ayer
 # Argumentos: Año mes dia (en número)
 # Sin argumentos: Fecha de ayer
 # Con argumentos: Fecha indicada
+
 if __name__=="__main__":
     fecha = getFecha(sys.argv)
     generar(fecha)

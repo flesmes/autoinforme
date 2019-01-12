@@ -14,9 +14,12 @@ def descargarBoletin(valido,alc,ar):
     fecha = (valido - datetime.timedelta(alc)).strftime('%d%m%Y')
     alcance = alcances[alc]
     area = areas[ar]
-    
-    remoto = 'http://fujita.inm.es/bdbolpbolpet.php?fecha={}&tipo=FPSP&ttaaii={}&hora=06&minuto=99&emisor={}'.format(fecha,alcance,area)
-    response = requests.get(remoto).content.decode('latin-1')
+
+    # Obtener boletín mediante petición a la base de datos
+    url = 'http://fujita.inm.es/bdbolpbolpet.php?fecha={}&tipo=FPSP&ttaaii={}&hora=06&minuto=99&emisor={}'.format(fecha,alcance,area)
+    response = requests.get(url).content.decode('latin-1')
+
+    # Extraer el boletín. Se encuentra entre las cadenas ZCZC y NNNN
     return re.search('(?s)ZCZC(.*?)NNNN',response).group(1)
     
 
