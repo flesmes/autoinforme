@@ -28,14 +28,14 @@ def listaImagenes(fecha):
 
     #Imagen 1: Guia técnica de diagnóstico. Niveles Medios/Altos. Día D a las 12
     images.append( Imgdata(
-        'http://turbonada.aemet.es/adjuntos/prod/GTDP/g22fa200.gif',
-        'g22fa200.gif',
+        'http://sureste.aemet.es/stapwww/archivotemporal/20190115/MOD/12/GT2/S1/000/GTDnaSAT.1.gif',
+        'GTDnaSAT.gif',
         640))
 
-    #Imagen 2: Guia técnica de diagnóstico. Niveles Medios/Altos. Día D a las 12
+    #Imagen 2: Análisis de superficie. Día D a las 12
     images.append( Imgdata(
-        'http://turbonada.aemet.es/adjuntos/prod/GTDP/gpx0a200.gif',
-        'gpx0a200.gif',
+        'http://sureste.aemet.es/stapwww/archivotemporal/20190115/MOD/12/GT2/S1/000/GTDnbSAT.1.gif',
+        'GTDnbSAT.gif',
         640))
 
     #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcance +12

@@ -56,7 +56,7 @@ def descargarImagenes( images, fechaD):
       [config.pathArchivo + '/' + dia.strftime('%Y%m%d') \
        for dia in [fechaD, fechaD1, fechaD2]]
     dirArchivoFechaD = directoriosArchivo[0]
-    print('Las imágenes se guardarán en ' + dirArchivoFechaD)
+    print(u'Las imágenes se guardarán en ' + dirArchivoFechaD)
     
     # Si no existen los directorios de archivo, los crea
     for dir in directoriosArchivo:
