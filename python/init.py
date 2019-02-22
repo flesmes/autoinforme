@@ -28,14 +28,14 @@ def listaImagenes(fecha):
 
     #Imagen 1: Guia técnica de diagnóstico. Niveles Medios/Altos. Día D a las 12
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/20190115/MOD/12/GT2/S1/000/GTDnaSAT.1.gif',
-        'GTDnaSAT.gif',
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnaSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'g22fa200_2.gif',
         640))
 
     #Imagen 2: Análisis de superficie. Día D a las 12
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/20190115/MOD/12/GT2/S1/000/GTDnbSAT.1.gif',
-        'GTDnbSAT.gif',
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnbSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'gpx0a200_2.gif',
         640))
 
     #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcance +12
@@ -69,7 +69,7 @@ def listaImagenes(fecha):
     #Imagen 1.1: Precipitación 24 H observada SEMAS
     images.append( Imgdata(
         'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Prec_{}_0000_24.jpg'.format(siguiente.strftime('%d%m%Y')),
-        'P_Prec_0000_24.jpg',
+        'P_Prec__0000_24_2.jpg',
         640))
 
     #Imagen 1.2: Precipitación 24 H observada SAIH Ebro
@@ -117,7 +117,7 @@ def listaImagenes(fecha):
     #Imagen 1: Nieve 24 H estimada 
     images.append( Imgdata(
         'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Nieve_{}_0000_24.jpg'.format(siguiente.strftime('%d%m%Y')),
-        'P_Nieve_0000_24.jpg',
+        'P_Nieve__0000_24_2.jpg',
         640))
 
     #Imagenes 2,3,4: Nieve 24 H. Modelo IFS, HARM 40, HARM 38
@@ -246,7 +246,7 @@ def listaImagenes(fecha):
     #Imagen 1: Rayos 24 H observados 
     images.append( Imgdata(
         'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Rayos_{}_0000_24.jpg'.format(siguiente.strftime('%d%m%Y')),
-        'P_Rayos_0000_24.jpg',
+        'P_Rayos__0000_24_2.jpg',
         640))
 
     #Imagen 2: Rayos 24 H observados 
