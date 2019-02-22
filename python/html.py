@@ -21,6 +21,7 @@ paginas = [Pagina('sinoptica.html', u'Situación sinóptica'),
            Pagina('rayos.html', 'Rayos'),
            Pagina('viento.html', 'Viento'),
            Pagina('temperatura.html', 'Temperatura'),
+           Pagina('efi.html', 'EFIs'),
            Pagina('radar.html', 'Radar'),
            Pagina('boletines.html', 'Boletines'),
           ]
