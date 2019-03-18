@@ -208,31 +208,31 @@ def listaImagenes(fecha):
 
     #Imagen 1: PCP 
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFIPCP_24.1.png'.format(siguiente.strftime('%Y%m%d')),
+        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFIPCP_24.1.png'.format(fecha.strftime('%Y%m%d')),
         'CEEPSEP1_EFIPCP_241_2.png',
         640))
 
     #Imagen 2: Nieve 
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFINIE.1.png'.format(siguiente.strftime('%Y%m%d')),
+        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFINIE.1.png'.format(fecha.strftime('%Y%m%d')),
         'CEEPSEP1_EFINIE1_2.png',
         640))
 
     #Imagen 3: TMAX 
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFITMAX.1.png'.format(siguiente.strftime('%Y%m%d')),
+        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFITMAX.1.png'.format(fecha.strftime('%Y%m%d')),
         'CEEPSEP1_EFITMAX1_2.png',
         640))
 
     #Imagen 4: TMIN
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFITMIN.1.png'.format(siguiente.strftime('%Y%m%d')),
+        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFITMIN.1.png'.format(fecha.strftime('%Y%m%d')),
         'CEEPSEP1_EFITMIN1_2.png',
         640))
 
     #Imagen 5: Rachas
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFIRACH.1.png'.format(siguiente.strftime('%Y%m%d')),
+        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFIRACH.1.png'.format(fecha.strftime('%Y%m%d')),
         'CEEPSEP1_EFIRACH1_2.png',
         640))
 

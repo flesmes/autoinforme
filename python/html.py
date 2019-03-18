@@ -53,7 +53,7 @@ def generar(fecha):
     # Directorio para guardar imagenes, basado en la fecha
     # Si no existe lo crea
     pathArchivoFecha = config.pathArchivo + '/' + fecha.strftime('%Y%m%d')
-    print('Los archivos html se guardarán en ' + pathArchivoFecha)
+    print('Los archivos html se guardaran en ' + pathArchivoFecha)
     if not os.path.exists(pathArchivoFecha):
         os.mkdir(pathArchivoFecha)
 
