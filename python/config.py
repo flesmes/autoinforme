@@ -1,3 +1,3 @@
-pathTemplates = '/home/felipe/desarrollo/autoinforme2.0/templates'
+pathTemplates = '/home/felipe/autoinforme/templates'
 
-pathArchivo = '/var/www/html/autoinforme/archivo'
+pathArchivo = '/var/www/html/archivo'

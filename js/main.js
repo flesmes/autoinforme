@@ -59,7 +59,7 @@ function fechaDesplazada(date, dias){
 }
 
 /* Fecha de inicio del archivo de imágenes */
-var fechaInicioArchivo = new Date(2018,11,28);
+var fechaInicioArchivo = new Date(2019,02,25);
 
 /* Se inicia el calendario con la fecha del campo escondido */
 $('#calendario').val($('#hidden').val())
