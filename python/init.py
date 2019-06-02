@@ -32,13 +32,23 @@ def listaImagenes(fecha):
         'g22fa200_2.gif',
         640))
 
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDna.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'GTDna.gif',
+        640))
+
     #Imagen 2: Análisis de superficie. Día D a las 12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnbSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
         'gpx0a200_2.gif',
         640))
 
-    #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcance +12
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnb.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'GTDnb.gif',
+        640))
+
+     #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcance +12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012NUB.1.png',

@@ -66,7 +66,9 @@ def generar(fecha):
     for area in ['cat', 'ara', 'val', 'bal']:
         for alcance in [1,2]:
             key = 'bol{}{}'.format(area,alcance)
-            variables[key] = boletines.descargarBoletin(fecha,alcance,area)
+            variables[key] = boletines.descargarPrediccion(fecha,alcance,area)
+
+    variables['guia'] = boletines.descargarGuia(fecha)
         
     for pagina in paginas:
 
