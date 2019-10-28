@@ -6,10 +6,8 @@ import json
 import re
 import requests
 
-ttaaiis = {1: 'FPSP75', 2: 'FPSP85'}
-
 def descargarPrediccion(valido, alcance, ccaa):
-    alcance_texto = ['hoy','manana','pasadomanana'][alcance]
+    alcance_texto = ['hoy','manana','pasadomanana','medioplazo'][alcance]
     fecha = (valido - datetime.timedelta(alcance)).strftime('%Y-%m-%d')
     
     url_opendata = 'opendata.aemet.es'
@@ -18,12 +16,9 @@ def descargarPrediccion(valido, alcance, ccaa):
 
     api_key = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmbGVzbWVzekBhZW1ldC5lcyIsImp0aSI6IjRkNGI4MzdjLWJiMTQtNDEwZC1iYzBkLTQ3OTU0MDg3ZGRlNCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNTcyMjU1NjQ1LCJ1c2VySWQiOiI0ZDRiODM3Yy1iYjE0LTQxMGQtYmMwZC00Nzk1NDA4N2RkZTQiLCJyb2xlIjoiIn0.bNjsN7xAb14oWcur0QmQx8Z6xw9FVdxOGgGVfkZAdGE'
 
-    url_peticion = ('/opendata/api/prediccion/ccaa/{alcance}/{ccaa}' +
+    url_peticion = ('/opendata/api/prediccion/ccaa/{alcance_texto}/{ccaa}' +
                     '/elaboracion/{fecha}/?api_key={api_key}'
-                   ).format(alcance = alcance_texto,
-                            ccaa = ccaa,
-                            fecha = fecha,
-                            api_key = api_key)
+                   ).format(**locals())
 
     try:
         conn.request("GET", url_peticion, headers=headers)
@@ -47,7 +42,7 @@ def descargarBoletin(fecha, ttaaii, hora, minuto, area):
         # Extraer el boletín. Se encuentra entre las cadenas ZCZC y NNNN
         return re.search('(?s)ZCZC(.*?)NNNN',response).group(1)
     except:
-        return 'Boletín no válido'
+        return 'No se ha podido descargar el boletín'
 
 def descargarGuia(valido):
     fecha = valido.strftime('%d%m%Y')
