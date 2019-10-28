@@ -63,10 +63,11 @@ def generar(fecha):
     variables['fechaPosterior'] = Fecha(fecha + datetime.timedelta(1))
 
     # Descargar boletines
-    for area in ['cat', 'ara', 'val', 'bal']:
+    for area in ['cat', 'arn', 'val', 'bal']:
         for alcance in [1,2]:
             key = 'bol{}{}'.format(area,alcance)
-            variables[key] = boletines.descargarPrediccion(fecha,alcance,area)
+            bol = boletines.descargarPrediccion(fecha, alcance, area)
+            variables[key] = html_paragraphs(bol)
 
     variables['guia'] = boletines.descargarGuia(fecha)
         
@@ -98,6 +99,10 @@ def getFecha(args):
         return datetime.date(int(args[1]), int(args[2]), int(args[3]))
     else:
         sys.exit(1);
+
+def html_paragraphs(text):
+  lines = ['<p>%s</p>' % line for line in text.splitlines()]
+  return '\n'.join(lines)
 
 # Este script se puede utilizar como módulo importado o como main.
 # Si se utiliza como main, la fecha se obtiene 
