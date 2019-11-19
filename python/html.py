@@ -1,7 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
-import codecs
 import datetime
 import jinja2
 import os
@@ -87,9 +85,8 @@ def generar(fecha):
 
         # El contenido de la página se guarda en archivo
         destino = pathArchivoFecha + '/' + pagina.nombre
-        file = codecs.open(destino,'w',encoding='utf-8')
-        file.write(output)
-        file.close()
+        with open(destino, 'w') as file:
+          file.write(output)
 
         print('Generado ' + pagina.nombre)
        
