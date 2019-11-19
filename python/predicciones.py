@@ -3,10 +3,7 @@
 import datetime
 import http.client
 import json
-import re
 import requests
-
-import bdbol
 
 def descargarPrediccion(valido, alcance, ccaa):
     alcance_texto = ['hoy','manana','pasadomanana','medioplazo'][alcance]
@@ -34,16 +31,6 @@ def descargarPrediccion(valido, alcance, ccaa):
         return resp
     except:
         return 'No se ha podido descargar la predicción'
-
-def descargar_guia(fecha_validez):
-    fecha = fecha_validez.strftime('%d%m%Y:000000')
-    boletin = 'FPSP90'
-    emisor = 'LEMM'
-    try:
-        bol = bdbol.request(boletin, emisor, fecha, fecha)[5:-6]
-        return bol
-    except:
-        return 'No se ha podido descargar el boletín'
 
 if __name__ == '__main__':
     fecha = datetime.date(2019,11,19)

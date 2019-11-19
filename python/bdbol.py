@@ -1,5 +1,6 @@
-import collections
+from collections import namedtuple
 import ftplib
+import os
 import sys
 
 def fichero_peticion(nombres, boletin, emisor, desde, hasta):
@@ -10,8 +11,9 @@ def fichero_peticion(nombres, boletin, emisor, desde, hasta):
     bbdd = 'BDBOL'
     lifetime = 15 #minutos
     rango_fechas = '{d},{h}'.format(d=desde, h=hasta)
+    path_peticion = 'temp/' + nombres['peticion']
 
-    Campo = collections.namedtuple('Campo', 'nombre valor')
+    Campo = namedtuple('Campo', 'nombre valor')
     campos = [Campo('NFES',        quoted(nombres['estado'])),
               Campo('CUESTION',    ''),
               Campo('NFIC',        quoted(nombres['datos'])),
@@ -21,7 +23,7 @@ def fichero_peticion(nombres, boletin, emisor, desde, hasta):
               Campo('BDBOLRFECHA', rango_fechas),
               Campo('BDBOLEMISOR', emisor)]
     
-    with open(nombres['peticion'],'w') as file:
+    with open(path_peticion,'w') as file:
         for campo in campos:
             file.write('#{c.nombre} {c.valor}\n'.format(c = campo))
 
@@ -35,11 +37,13 @@ def request(boletin, emisor, fecha_inicio, fecha_fin):
 
     fecha_inicio = solo_digitos(fecha_inicio)
     fecha_fin = solo_digitos(fecha_fin)
-    subfix = '{boletin}_{emisor}_{fecha_inicio}_{fecha_fin}'.format(**locals())
+    fmt = '{boletin}_{emisor}_{fecha_inicio}_{fecha_fin}'
+    subfix = fmt.format(**locals())
     nombres = {}
     nombres['peticion'] = 'peticion_' + subfix
     nombres['datos']    = 'datos_'    + subfix
     nombres['estado']   = 'estado_'   + subfix
+    path_peticion_local = 'temp/' + nombres['peticion']
 
     host = 'glaciar.aemet.es'
     port = 766
@@ -52,18 +56,18 @@ def request(boletin, emisor, fecha_inicio, fecha_fin):
     fichero_peticion(nombres, boletin, emisor, fecha_inicio, fecha_fin)
     
     connection.cwd('peticiones')
-    with open(nombres['peticion'], 'rb') as fichero_peticion_local:
+    with open(path_peticion_local, 'rb') as fichero_peticion_local:
         connection.storlines('STOR ' + nombres['peticion'],
                              fichero_peticion_local)
+    os.remove(path_peticion_local)
 
     connection.cwd('../datos')
     bol_bytes = bytearray()
-    with open(nombres['datos'], 'w') as fichero_datos_local:
-        connection.retrlines('RETR ' + nombres['datos'], write_line)
+    connection.retrlines('RETR ' + nombres['datos'], write_line)
     
     connection.close()
 
-    return bol_bytes.decode()
+    return bol_bytes.decode()[5:-6]
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:

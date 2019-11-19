@@ -7,8 +7,9 @@ import jinja2
 import os
 import sys
 
-import boletines
+import bdbol
 import config
+import predicciones
 
 class Pagina:
   def __init__(self,nombre,descripcion):
@@ -66,11 +67,11 @@ def generar(fecha):
     for area in ['cat', 'arn', 'val', 'bal']:
         for alcance in [1,2]:
             key = 'bol{}{}'.format(area,alcance)
-            bol = boletines.descargarPrediccion(fecha, alcance, area)
+            bol = predicciones.descargarPrediccion(fecha, alcance, area)
             variables[key] = html_lines(bol)
 
-    bol = boletines.descargar_guia(fecha)
-    variables['guia'] = html_lines(bol)
+    guia = descargar_guia(fecha)
+    variables['guia'] = html_lines(guia)
         
     for pagina in paginas:
 
@@ -109,6 +110,17 @@ def html_lines(text):
   lines = ['{}</br>'.format(line) for line in text.splitlines()]
   return '\n'.join(lines)
 
+def descargar_guia(fecha_validez):
+    fecha = fecha_validez.strftime('%d%m%Y:000000')
+    boletin = 'FPSP90'
+    emisor = 'LEMM'
+    try:
+        bol = bdbol.request(boletin, emisor, fecha, fecha)
+        return bol
+    except:
+        return 'No se ha podido descargar el boletín'
+
+
 # Este script se puede utilizar como módulo importado o como main.
 # Si se utiliza como main, la fecha se obtiene 
 # a partir de los argumentos (si los hay)
@@ -120,4 +132,3 @@ def html_lines(text):
 if __name__=="__main__":
     fecha = getFecha(sys.argv)
     generar(fecha)
-
