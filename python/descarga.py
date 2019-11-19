@@ -1,5 +1,3 @@
-# -*- coding: latin-1 -*-
-
 import datetime
 import PIL.Image
 import os
@@ -18,7 +16,7 @@ def descargarURL(url,archivo):
     lfile.close()
 
 # redimensionar imagen para anchura determinada,
-# sin cambiar relaciÛn anchura-altura
+# sin cambiar relaci√≥n anchura-altura
 def redimensionar(path, anchura):
     img_ini = PIL.Image.open(path).convert('RGB')
     (anchura_ini,altura_ini) = img_ini.size
@@ -28,7 +26,7 @@ def redimensionar(path, anchura):
     os.remove(path)
 
     # Aparece un error al guardar algunos gif,
-    # Se guardar·n como png
+    # Se guardar√°n como png
     extension = re.search('\.[^.]*$',path).group(0)
     nombre = path[:-len(extension)]
     if extension == '.gif' or extension == '.GIF':
@@ -42,12 +40,12 @@ def tieneDirectorio(path):
 
 # descargar imagenes
 # images - lista de archivos de imagenes
-# fecha - dÌa del informe
+# fecha - d√≠a del informe
 def descargarImagenes( images, fechaD):
 
-    # La mayor parte de las im·genes se guardan en la
-    # carpeta correspondiente al dÌa D (dÌa del informe)
-    # Pero algunas se guardan en las carpetas del dÌa D+1 y D+2
+    # La mayor parte de las im√°genes se guardan en la
+    # carpeta correspondiente al d√≠a D (d√≠a del informe)
+    # Pero algunas se guardan en las carpetas del d√≠a D+1 y D+2
     
     fechaD1 = fechaD + datetime.timedelta(1)
     fechaD2 = fechaD + datetime.timedelta(2)
@@ -69,9 +67,9 @@ def descargarImagenes( images, fechaD):
     
     for image in images:
 
-        # Las imagenes que se archivan en la carpeta del dÌa D
+        # Las imagenes que se archivan en la carpeta del d√≠a D
         # no llevan el nombre del directorio en el path de la imagen.
-        # Las que se archivan el directorio del dÌa D+1 o D+2, sÌ
+        # Las que se archivan el directorio del d√≠a D+1 o D+2, s√≠
         if tieneDirectorio(image.localfile):
             local = config.pathArchivo + '/' + image.localfile
         else:

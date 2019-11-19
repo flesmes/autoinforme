@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# -*- coding: latin-1 -*-
 
 import datetime
 import sys
@@ -10,9 +9,9 @@ import init
 
 # Obtener fecha a partir de los argumentos (si los hay)
 # o si no la fecha de ayer
-# Argumentos: Año mes dia (en número)
 # Sin argumentos: Fecha de ayer
 # Con argumentos: Fecha indicada
+# Argumentos: AÃ±o mes dia (en nÃºmero)
 
 def getFecha(args):
     if len(args) == 1:

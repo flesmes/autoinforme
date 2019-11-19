@@ -1,5 +1,3 @@
-# -*- coding: latin-1 -*-
-
 import datetime
 
 # Lista de imagenes a descargar.
@@ -23,10 +21,10 @@ def listaImagenes(fecha):
     dmas2 = fecha + datetime.timedelta(2)
     
     # *****************
-    # Situación sinóptica
+    # SituaciÃ³n sinÃ³ptica
     # *****************
 
-    #Imagen 1: Guia técnica de diagnóstico. Niveles Medios/Altos. Día D a las 12
+    #Imagen 1: Guia tÃ©cnica de diagnÃ³stico. Niveles Medios/Altos. DÃ­a D a las 12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnaSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
         'g22fa200_2.gif',
@@ -37,7 +35,7 @@ def listaImagenes(fecha):
         'GTDna.gif',
         640))
 
-    #Imagen 2: Análisis de superficie. Día D a las 12
+    #Imagen 2: AnÃ¡lisis de superficie. DÃ­a D a las 12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnbSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
         'gpx0a200_2.gif',
@@ -48,47 +46,47 @@ def listaImagenes(fecha):
         'GTDnb.gif',
         640))
 
-     #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcance +12
+     #Imagen 3: P, Nubes Superficie. Pasada del dÃ­a D a las 00. Alcance +12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012NUB.1.png',
         640))
 
-    #Imagen 4: T,Z Nivel 850. Pasada del día D a las 00. Alcance +12
+    #Imagen 4: T,Z Nivel 850. Pasada del dÃ­a D a las 00. Alcance +12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_850.1.png',
         640))
 
-    #Imagen 5: T,Z Nivel 500. Pasada del día D a las 00. Alcance +12
+    #Imagen 5: T,Z Nivel 500. Pasada del dÃ­a D a las 00. Alcance +12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_500.1.png',
         640))
 
-    #Imagen 6: T,Z Nivel 300. Pasada del día D a las 00. Alcance +12
+    #Imagen 6: T,Z Nivel 300. Pasada del dÃ­a D a las 00. Alcance +12
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_300.1.png',
         640))
 
     # *****************
-    # Precipitación
+    # PrecipitaciÃ³n
     # *****************
 
-    #Imagen 1.1: Precipitación 24 H observada SEMAS
+    #Imagen 1.1: PrecipitaciÃ³n 24 H observada SEMAS
     images.append( Imgdata(
         'http://www0.inm.es/wwx/webpagin/MapasAutomaticos/mapas/P_Prec_{}_0000_24.jpg'.format(siguiente.strftime('%d%m%Y')),
         'P_Prec__0000_24_2.jpg',
         640))
 
-    #Imagen 1.2: Precipitación 24 H observada SAIH Ebro
+    #Imagen 1.2: PrecipitaciÃ³n 24 H observada SAIH Ebro
     images.append( Imgdata(
         'http://www.saihebro.com/saihebro/img/pluviometrias/evolucion//PACUM_{}-00.PNG'.format(siguiente.strftime('%Y-%m-%d')),
         'Pcp24_SAIHEbro.jpg',
         640))
 
-    #Imagenes 2,3,4: Precipitación 24 H. Modelo IFS, HARM 40, HARM 38
+    #Imagenes 2,3,4: PrecipitaciÃ³n 24 H. Modelo IFS, HARM 40, HARM 38
     # Pasadas D-1 00, D-1 12, D 00
     for mod in ['CE', 'HMAR', 'HMAR2']: 
         images.append( Imgdata(
@@ -138,7 +136,7 @@ def listaImagenes(fecha):
             'MOD00{}P1048NIEVE_24.1.png'.format(mod),
             640))
 
-    #Imagenes 5,6: Cota de nieve mínima en 24 H. Modelo IFS, HARM 40
+    #Imagenes 5,6: Cota de nieve mÃ­nima en 24 H. Modelo IFS, HARM 40
     # Pasadas D-1 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
@@ -147,7 +145,7 @@ def listaImagenes(fecha):
             640))
 
     # *****************
-    # Viento Racha máxima en 24 horas
+    # Viento Racha mÃ¡xima en 24 horas
     # *****************
 
     #Imagen 1: Observada
@@ -165,7 +163,7 @@ def listaImagenes(fecha):
             640))
 
     # *****************
-    # Temperatura máxima
+    # Temperatura mÃ¡xima
     # *****************
 
     #Imagen 1: Observada
@@ -189,7 +187,7 @@ def listaImagenes(fecha):
             640))
 
     # *****************
-    # Temperatura mínima
+    # Temperatura mÃ­nima
     # *****************
 
     #Imagen 1: Observada
@@ -250,7 +248,7 @@ def listaImagenes(fecha):
     # Radar
     # *****************
  
-    # Radar Nacional, Diagnóstico 2D, Imagenes cada hora
+    # Radar Nacional, DiagnÃ³stico 2D, Imagenes cada hora
 
     for h in range(24):
         if h < 10:
