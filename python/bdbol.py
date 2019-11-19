@@ -32,7 +32,7 @@ def request(boletin, emisor, fecha_inicio, fecha_fin):
     def solo_digitos(st):
         return ''.join(c for c in st if c.isdigit())
 
-    def write_line(line):
+    def append_line(line):
         bol_bytes.extend(bytearray(line + '\n', 'utf8'))
 
     fecha_inicio = solo_digitos(fecha_inicio)
@@ -63,11 +63,12 @@ def request(boletin, emisor, fecha_inicio, fecha_fin):
 
     connection.cwd('../datos')
     bol_bytes = bytearray()
-    connection.retrlines('RETR ' + nombres['datos'], write_line)
+    connection.retrlines('RETR ' + nombres['datos'], append_line)
     
     connection.close()
 
-    return bol_bytes.decode()[5:-6]
+    body = slice(5,-6)
+    return bol_bytes.decode()[body]
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
