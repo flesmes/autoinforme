@@ -67,9 +67,10 @@ def generar(fecha):
         for alcance in [1,2]:
             key = 'bol{}{}'.format(area,alcance)
             bol = boletines.descargarPrediccion(fecha, alcance, area)
-            variables[key] = html_paragraphs(bol)
+            variables[key] = html_lines(bol)
 
-    variables['guia'] = boletines.descargarGuia(fecha)
+    bol = boletines.descargar_guia(fecha)
+    variables['guia'] = html_lines(bol)
         
     for pagina in paginas:
 
@@ -102,6 +103,10 @@ def getFecha(args):
 
 def html_paragraphs(text):
   lines = ['<p>%s</p>' % line for line in text.splitlines()]
+  return '\n'.join(lines)
+
+def html_lines(text):
+  lines = ['{}</br>'.format(line) for line in text.splitlines()]
   return '\n'.join(lines)
 
 # Este script se puede utilizar como módulo importado o como main.
