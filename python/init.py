@@ -88,7 +88,7 @@ def listaImagenes(fecha):
 
     #Imagenes 2,3,4: Precipitación 24 H. Modelo IFS, HARM 40, HARM 38
     # Pasadas D-1 00, D-1 12, D 00
-    for mod in ['CE', 'HMAR', 'HMAR2']: 
+    for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/PCP_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048PCP_24.1.png'.format(mod),
@@ -102,6 +102,7 @@ def listaImagenes(fecha):
             'MOD00{}P1024PCP_24.1.png'.format(mod),
             640))
 
+    #Precipitación 24 H. Modelo EPS
     for umbral in ['1', '5', '20', '40']:
         images.append( Imgdata(
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CEEPSP1/P1/048/PDP_24_{}.1.png'.format(anterior.strftime('%Y%m%d'),umbral),
@@ -130,7 +131,7 @@ def listaImagenes(fecha):
 
     #Imagenes 2,3,4: Nieve 24 H. Modelo IFS, HARM 40, HARM 38
     # Pasadas D-1 00
-    for mod in ['CE', 'HMAR', 'HMAR2']: 
+    for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/NIEVE_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048NIEVE_24.1.png'.format(mod),
@@ -156,7 +157,7 @@ def listaImagenes(fecha):
 
     #Imagenes 2,3,4: Modelo IFS, HARM 40, HARM 38
     # Pasadas D-1 00
-    for mod in ['CE', 'HMAR', 'HMAR2']: 
+    for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/RACHAMAX_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048RACHAMAX_24.1.png'.format(mod),
