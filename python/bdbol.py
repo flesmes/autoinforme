@@ -2,6 +2,7 @@ from collections import namedtuple
 import ftplib
 import os
 import sys
+import config
 
 def fichero_peticion(nombres, boletin, emisor, desde, hasta):
 
@@ -11,7 +12,7 @@ def fichero_peticion(nombres, boletin, emisor, desde, hasta):
     bbdd = 'BDBOL'
     lifetime = 15 #minutos
     rango_fechas = '{d},{h}'.format(d=desde, h=hasta)
-    path_peticion = 'temp/' + nombres['peticion']
+    path_peticion = config.path_base + '/temp/' + nombres['peticion']
 
     Campo = namedtuple('Campo', 'nombre valor')
     campos = [Campo('NFES',        quoted(nombres['estado'])),
@@ -40,7 +41,7 @@ def request(boletin, emisor, fecha_inicio, fecha_fin):
     nombres['peticion'] = 'peticion_' + subfix
     nombres['datos']    = 'datos_'    + subfix
     nombres['estado']   = 'estado_'   + subfix
-    path_peticion_local = 'temp/' + nombres['peticion']
+    path_peticion_local = config.path_base + '/temp/' + nombres['peticion']
 
     host = 'glaciar.aemet.es'
     port = 766
