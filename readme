@@ -1,0 +1,9 @@
+El desarrollo está hecho en un entorno virtual con Python3.5.10,
+la versión en las maquinas de pruebas y producción es Python3.5.2
+
+Creación del entorno virtual:
+sudo apt install python3-virtualenv
+virtualenv --python=python3.5 venv
+
+Instalar librerías
+pip install -r requirements

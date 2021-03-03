@@ -1,6 +1,6 @@
 import datetime
 import PIL.Image
-import os
+import os, os.path
 import re
 import requests
 import shutil
@@ -49,10 +49,10 @@ def descargarImagenes( images, fechaD):
     
     fechaD1 = fechaD + datetime.timedelta(1)
     fechaD2 = fechaD + datetime.timedelta(2)
-   
-    directoriosArchivo = \
-      [config.pathArchivo + '/' + dia.strftime('%Y%m%d') \
-       for dia in [fechaD, fechaD1, fechaD2]]
+    dias = [dia.strftime('%Y%m%d') for dia in [fechaD, fechaD1, fechaD2]]
+
+    baseArchivo = os.path.join( config.wwwPath, 'archivo')
+    directoriosArchivo = [os.path.join(baseArchivo, dia) for dia in dias] 
     dirArchivoFechaD = directoriosArchivo[0]
     print('Las imagenes se guardaran en ' + dirArchivoFechaD)
     
@@ -67,23 +67,31 @@ def descargarImagenes( images, fechaD):
     
     for image in images:
 
-        # Las imagenes que se archivan en la carpeta del día D
-        # no llevan el nombre del directorio en el path de la imagen.
-        # Las que se archivan el directorio del día D+1 o D+2, sí
+        # Path para las imagenes
+        # Para las del dia D, image.localFile solo incluye el
+        # nombre del fichero.
+        # Añadir el path del directorio que las contiene
+        # Para las del dia D+1 y D+2, el nombre image.localFile
+        # contiene el directorio con la fecha correspondiente.
+        # Detectar que el nombre incluye el directorio (tieneDirectorio)
+        # y añadir el path del directorio base de archivo
         if tieneDirectorio(image.localfile):
-            local = config.pathArchivo + '/' + image.localfile
+            imageLocalPath = os.path.join( baseArchivo, image.localfile)
         else:
-            local = dirArchivoFechaD + '/' + image.localfile
+            imageLocalPath = os.path.join( dirArchivoFechaD,
+                                           image.localfile)
 
         try:
-            descargarURL(image.remotefile, local);
+            descargarURL(image.remotefile, imageLocalPath);
             #print('Descargado {}'.format(image.remotefile))
-            redimensionar(local, image.width)
+            redimensionar(imageLocalPath, image.width)
         except:
             print('Fallo descargando {}'.
                   format(image.remotefile))
-            shutil.copyfile(config.pathTemplates + '/nodisponibler.png',
-                            local)
+            noDisponible = os.path.join( config.srcPath,
+                                         'templates',
+                                         'nodisponibler.png')
+            shutil.copyfile(noDisponible, imageLocalPath)
         
 
 

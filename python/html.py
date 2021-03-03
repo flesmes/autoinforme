@@ -2,7 +2,7 @@
 
 import datetime
 import jinja2
-import os
+import os, os.path
 import sys
 
 import bdbol
@@ -44,17 +44,22 @@ def fechaNatural(fecha):
 # generar archivos HTML  
 def generar(fecha):
   
-    jinjaEnv = jinja2.Environment(
-        loader = jinja2.FileSystemLoader(config.pathTemplates),
-        trim_blocks = True,
-        lstrip_blocks = True)
-
+    pathTemplates = os.path.join(config.srcPath, 'templates')
+    
     # Directorio para guardar imagenes, basado en la fecha
     # Si no existe lo crea
-    pathArchivoFecha = config.pathArchivo + '/' + fecha.strftime('%Y%m%d')
+    pathArchivoFecha = os.path.join( config.wwwPath,
+                                     'archivo',
+                                     fecha.strftime('%Y%m%d') )
     print('Los archivos html se guardaran en ' + pathArchivoFecha)
     if not os.path.exists(pathArchivoFecha):
         os.mkdir(pathArchivoFecha)
+    
+    jinjaEnv = jinja2.Environment(
+        loader = jinja2.FileSystemLoader(pathTemplates),
+        trim_blocks = True,
+        lstrip_blocks = True)
+
 
     variables = {}
     variables['fecha'] = Fecha(fecha)
@@ -111,11 +116,11 @@ def descargar_guia(fecha_validez):
     fecha = fecha_validez.strftime('%d%m%Y:000000')
     boletin = 'FPSP90'
     emisor = 'LEMM'
-    try:
-        bol = bdbol.request(boletin, emisor, fecha, fecha)
-        return bol
-    except:
-        return 'No se ha podido descargar el boletín'
+    #try:
+    bol = bdbol.request(boletin, emisor, fecha, fecha)
+    return bol
+    #except:
+     #   return 'No se ha podido descargar el boletín'
 
 
 # Este script se puede utilizar como módulo importado o como main.

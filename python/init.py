@@ -159,8 +159,8 @@ def listaImagenes(fecha):
     # Pasadas D-1 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/RACHAMAX_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
-            'MOD00{}P1048RACHAMAX_24.1.png'.format(mod),
+            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/RACHA_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'MOD00{}P1048RACHA_24.1.png'.format(mod),
             640))
 
     # *****************

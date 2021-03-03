@@ -1,0 +1,5 @@
+srcPath = '{{srcPath}}'
+
+wwwPath = '{{wwwPath}}'
+
+
