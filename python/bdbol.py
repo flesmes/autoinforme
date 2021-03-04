@@ -1,12 +1,14 @@
 from collections import namedtuple
 import ftplib
+import io
 import os
 import sys
+import time
 
 import config
 import key
 
-def fichero_peticion(nombres, boletin, emisor, desde, hasta):
+def formularioPeticion(nombres, boletin, emisor, desde, hasta):
 
     def quoted(st):
         return r'"' + st + r'"'
@@ -28,9 +30,8 @@ def fichero_peticion(nombres, boletin, emisor, desde, hasta):
               Campo('BDBOLRFECHA', rango_fechas),
               Campo('BDBOLEMISOR', emisor)]
     
-    with open(path_peticion,'w') as file:
-        for campo in campos:
-            file.write('#{c.nombre} {c.valor}\n'.format(c = campo))
+    lines = ['#{c.nombre} {c.valor}'.format(c = campo) for campo in campos]
+    return '\n'.join(lines)
 
 def request(boletin, emisor, fecha_inicio, fecha_fin):
 
@@ -56,13 +57,18 @@ def request(boletin, emisor, fecha_inicio, fecha_fin):
     connection.connect(host,port)
     connection.login(user,passwd)
 
-    fichero_peticion(nombres, boletin, emisor, fecha_inicio, fecha_fin)
+    peticion = formularioPeticion(nombres,
+                                   boletin,
+                                   emisor,
+                                   fecha_inicio,
+                                   fecha_fin)
+    streamPeticion = io.BytesIO( bytes(peticion,'utf8'))
     
     connection.cwd('peticiones')
-    with open(path_peticion_local, 'rb') as fichero_peticion_local:
-        connection.storlines('STOR ' + nombres['peticion'],
-                             fichero_peticion_local)
-    os.remove(path_peticion_local)
+    connection.storlines('STOR ' + nombres['peticion'], streamPeticion)
+    streamPeticion.close()
+
+    time.sleep(2)
 
     connection.cwd('../datos')
     bol_lines = []

@@ -19,9 +19,16 @@ el control de acceso HTTP (CORS).
 Se elimina el error en about:config, poniendo privacy_file_unique_origin como false
 https://support.mozilla.org/bm/questions/1264280
 
+PUSH
+
+git push origin master
+username token
 
 DESPLIEGUE
 
+git pull origin
+
 Ejecutar despliegue.py
 
-El archivo key.py debe ser copiado manualmente
+Copiar manualmente key.py
+scp python/key.py username@host:~/autoinforme/python
