@@ -14,7 +14,10 @@ def descargarPrediccion(valido, alcance, ccaa):
         # Hay un problema con el cifrado. Ubuntu 20.04 exige un nivel de
         # seguridad que no proporciona al servidor de opendata
         # Se rebaja el nivel de seguridad a 1
-        requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL:@SECLEVEL=1'
+        hostname = socket.gethostname()
+        print('host', hostname)
+        if hostname == 'gradullon':
+            requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL:@SECLEVEL=1'
 
         url = ('https://opendata.aemet.es/opendata/api/prediccion/ccaa/{alcance_texto}/{ccaa}' + '/elaboracion/{fecha}').format(**locals())
         queryString = {'api_key': key.OPENDATA_API_KEY}
