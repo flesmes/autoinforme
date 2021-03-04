@@ -12,6 +12,14 @@ PIP
 Instalar librerías
 pip install -r requirements
 
+PRUEBAS
+
+En las pruebas sobre protocolo file:// en Firefox puede dar un error por
+el control de acceso HTTP (CORS).
+Se elimina el error en about:config, poniendo privacy_file_unique_origin como false
+https://support.mozilla.org/bm/questions/1264280
+
+
 DESPLIEGUE
 
 Ejecutar despliegue.py
