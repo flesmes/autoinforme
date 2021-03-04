@@ -2,6 +2,7 @@ import datetime
 import http.client
 import json
 import requests
+import socket
 
 import key
 
@@ -15,7 +16,7 @@ def descargarPrediccion(valido, alcance, ccaa):
         # seguridad que no proporciona al servidor de opendata
         # Se rebaja el nivel de seguridad a 1
         hostname = socket.gethostname()
-        print('host', hostname)
+        # print('host', hostname)
         if hostname == 'gradullon':
             requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL:@SECLEVEL=1'
 
