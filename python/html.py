@@ -109,7 +109,7 @@ def html_paragraphs(text):
   return '\n'.join(lines)
 
 def html_lines(text):
-  lines = ['{}</br>'.format(line) for line in text.splitlines()]
+  lines = ['{}</br>'.format(line) for line in text.splitlines() if line != '']
   return '\n'.join(lines)
 
 def descargar_guia(fecha_validez):
