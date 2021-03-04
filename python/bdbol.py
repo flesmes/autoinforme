@@ -2,7 +2,9 @@ from collections import namedtuple
 import ftplib
 import os
 import sys
+
 import config
+import key
 
 def fichero_peticion(nombres, boletin, emisor, desde, hasta):
 
@@ -49,7 +51,7 @@ def request(boletin, emisor, fecha_inicio, fecha_fin):
     host = 'glaciar.aemet.es'
     port = 766
     user = 'gpvbn'
-    passwd = '900Gpvbl'
+    passwd = key.BDBOL_KEY
     connection = ftplib.FTP()
     connection.connect(host,port)
     connection.login(user,passwd)

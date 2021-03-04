@@ -3,4 +3,5 @@
 archivo
 log
 python/config.py
+python/key.py
 venv

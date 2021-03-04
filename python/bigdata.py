@@ -5,16 +5,15 @@ import requests
 import shutil
 
 import config
+import key
 
 def bigdataRequest(url, outputFile):
-
-    API_KEY='eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmbGVzbWVzekBhZW1ldC5lcyIsImp0aSI6IjE5ZDA1ZDJiLWRjNWUtNGJkOS1hMTFjLTFlODgxZDBiMTg2NyIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNjEzNDA2MjI1LCJ1c2VySWQiOiIxOWQwNWQyYi1kYzVlLTRiZDktYTExYy0xZTg4MWQwYjE4NjciLCJyb2xlIjoiIn0.kM7u_LSaBjINumcRLLU6bQpeDqqzTORBY7Fp3dLiz6k'
 
     noDisponiblePath = os.path.join( config.path_base,
                                      'templates',
                                      'nodisponible.gif')
     
-    querystring = {'api_key':API_KEY}
+    querystring = {'api_key':key.BIGDATA_API_KEY}
     headers = {'cache-control': 'no-cache'}
 
 
