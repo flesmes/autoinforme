@@ -5,7 +5,6 @@ import sys
 
 import descarga
 import html
-import init
 
 # Obtener fecha a partir de los argumentos (si los hay)
 # o si no la fecha de ayer
@@ -23,8 +22,7 @@ def getFecha(args):
 
 fecha = getFecha(sys.argv)
 
-imagenes = init.listaImagenes(fecha)
-descarga.descargarImagenes(imagenes, fecha)
+descarga.descargarImagenes(fecha)
 
 html.generar(fecha);
         

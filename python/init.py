@@ -260,10 +260,11 @@ def listaImagenes(fecha):
             'http://sureste.aemet.es/stapwww/archivotemporal/{}/RAD/{}/NAC/00_RA2D.PNG'.format(fecha.strftime('%Y%m%d'),hora),
             'RAD{}NAC00_RA2D.PNG'.format(hora),
             950))
-        images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/RAD/{}/NAC/00_ACC.PNG'.format(fecha.strftime('%Y%m%d'),hora),
-            'RAD{}NAC00_ACC.PNG'.format(hora),
-            950))
+        
+        #images.append( Imgdata(
+        #   'http://sureste.aemet.es/stapwww/archivotemporal/{}/RAD/{}/NAC/00_ACC.PNG'.format(fecha.strftime('%Y%m%d'),hora),
+        #  'RAD{}NAC00_ACC.PNG'.format(hora),
+        # 950))
 
     # *****************
     # Nubes bajas

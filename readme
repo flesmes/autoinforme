@@ -16,8 +16,13 @@ PRUEBAS
 
 En las pruebas sobre protocolo file:// en Firefox puede dar un error por
 el control de acceso HTTP (CORS).
-Se elimina el error en about:config, poniendo privacy_file_unique_origin como false
-https://support.mozilla.org/bm/questions/1264280
+
+He utilizado un servidor web (http-server) para hacer las pruebas
+sudo npm install http-server -g
+npm install http-server -g
+
+http-server root_directory
+La url es http://127.0.0.1:8080
 
 PUSH
 
@@ -26,7 +31,11 @@ username token
 
 DESPLIEGUE
 
-git pull origin
+La máquina de producción da problemas de proxy al hacer git pull
+He configurado una conexión remota por ssh originssh
+
+git pull origin o
+git pull originssh master
 
 Ejecutar despliegue.py
 

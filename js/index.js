@@ -24,6 +24,7 @@ function existeURL(url) {
 
 var fecha = new Date(); // Hoy
 console.log(fecha)
+console.log('hola')
 var url;
 
 /* Encuentra la url de la página para el día anterior

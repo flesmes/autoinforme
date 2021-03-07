@@ -5,7 +5,9 @@ import re
 import requests
 import shutil
 
+import bigdata
 import config
+import init
 
 # descargar URL en archivo
 def descargarURL(url,archivo):
@@ -41,7 +43,7 @@ def tieneDirectorio(path):
 # descargar imagenes
 # images - lista de archivos de imagenes
 # fecha - día del informe
-def descargarImagenes( images, fechaD):
+def descargarImagenesVIM(fechaD):
 
     # La mayor parte de las imágenes se guardan en la
     # carpeta correspondiente al día D (día del informe)
@@ -61,11 +63,13 @@ def descargarImagenes( images, fechaD):
         if not os.path.exists(dir):
             os.mkdir(dir)
 
-    # Para cada imagen;
+    imagenes = init.listaImagenes(fechaD)
+
+# Para cada imagen;
     # descarga la imagen
     # redimensiona la imagen
     
-    for image in images:
+    for image in imagenes:
 
         # Path para las imagenes
         # Para las del dia D, image.localFile solo incluye el
@@ -92,6 +96,30 @@ def descargarImagenes( images, fechaD):
                                          'templates',
                                          'nodisponibler.png')
             shutil.copyfile(noDisponible, imageLocalPath)
-        
+
+# Descarga de imágenes de estimación por radar de acumulación de precipitación en 24 horas
+def descargarImagenesBigData(fecha):
+
+    # La fecha para la URL es la del día siguiente (a las 00)
+    fechaDiaSiguiente = fecha + datetime.timedelta(1)
+    fechaTexto = fechaDiaSiguiente.strftime('%Y%m%d')
+
+    # Referencia para los productos de acumulación de radar en 24 horas
+    referencias = {'Barcelona': 'r7ba0000.gif',
+                   'Zaragoza': 'r7za0000.gif',
+                   'Valencia': 'r7va0000.gif',
+                   'Murcia': 'r7mu0000.gif'}
+
+    outputPath = os.path.join(config.wwwPath,
+                              'archivo',
+                              fecha.strftime('%Y%m%d'))
+
+    for radar in referencias.keys():
+        fileName = 'acumulacion24Radar{radar}.gif'.format(radar=radar)
+        filePath = os.path.join(outputPath, fileName)
+        bigdata.bdpRequest( fechaTexto, referencias[radar], filePath)
 
 
+def descargarImagenes(fecha):
+    descargarImagenesVIM(fecha)
+    descargarImagenesBigData(fecha)
