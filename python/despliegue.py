@@ -1,47 +1,33 @@
-import jinja2
 import os, os.path
 import shutil
 import socket
 
 # config.py
-def generateConfig():
-
-    paths = { 'srcPath': srcPath, 'wwwPath': wwwPath}
-
-    pathTemplates = os.path.join(paths['srcPath'], 'templates')
-
-    jinjaEnv = jinja2.Environment(
-        loader = jinja2.FileSystemLoader(pathTemplates),
-        trim_blocks = True,
-        lstrip_blocks = True)
-
-    output = jinjaEnv.get_template('config.py').render(paths)
-    destino = os.path.join(paths['srcPath'], 'python', 'config.py')
+def generateConfigScript():
+    destino = os.path.join(srcPath, 'python', 'config.py')
     with open(destino, 'w') as file:
-        file.write(output)
+        file.write("srcPath = '{path}'\n".format(path=srcPath))
+        file.write("\n")
+        file.write("wwwPath = '{path}'\n".format(path=wwwPath))
 
     print('Creado config.py en ' + destino)
-
+ 
 # Crear carpetas si no existen    
 def crearCarpetas():
-    
+
+    # Carpetas en wwwPath
     dirs = ['archivo', 'css', 'js']
-    paths = [os.path.join( wwwPath, dir) for dir in dirs]
-    for path in paths:
+    for dir in dirs:
+        path = os.path.join(wwwPath, dir)
         if not os.path.exists(path):
             os.mkdir(path)
-
-    path = os.path.join( srcPath, 'temp')
-    if not os.path.exists(path):
-        os.mkdir(path)
-    
-
+            
 def copyFile( file, fuenteDir, destinoDir):
     fuente = os.path.join(fuenteDir, file)
     destino = os.path.join(destinoDir, file)
     shutil.copyfile(fuente, destino)
 
-def saltar(file):
+def ignorable(file):
     return file[-1] == '~'
 
 def copiarWwwSrc():
@@ -55,7 +41,7 @@ def copiarWwwSrc():
         dirWwwPath = os.path.join(wwwPath, dir)
         files = os.listdir(dirSrcPath)
         for file in files:
-            if not saltar(file):
+            if not ignorable(file):
                 copyFile( file, dirSrcPath, dirWwwPath)
     
 
@@ -69,9 +55,8 @@ else:
     srcPath = '/home/felipe/autoinforme'
     wwwPath = '/var/www/html'
 
-generateConfig()
+generateConfigScript()
 
 crearCarpetas()
 
 copiarWwwSrc()
-

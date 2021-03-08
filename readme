@@ -31,6 +31,9 @@ username token
 
 DESPLIEGUE
 
+Algunos servidores con Ubuntu16.04 dan problemas haciendo ssh con el cifrado
+Utilizar ssh -vvv -c aes256-cbc host usual0
+
 La máquina de producción da problemas de proxy al hacer git pull
 He configurado una conexión remota por ssh originssh
 

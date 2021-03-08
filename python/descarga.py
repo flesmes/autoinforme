@@ -123,3 +123,7 @@ def descargarImagenesBigData(fecha):
 def descargarImagenes(fecha):
     descargarImagenesVIM(fecha)
     descargarImagenesBigData(fecha)
+
+if __name__ == '__main__':
+    fecha = datetime.date.today() - datetime.timedelta(1)
+    descargarImagenesBigData(fecha)
