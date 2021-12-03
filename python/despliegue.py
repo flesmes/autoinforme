@@ -48,9 +48,9 @@ def copiarWwwSrc():
 hostname = socket.gethostname()
 print('host', hostname)
 
-if hostname == 'gradullon':
-    srcPath = '/home/flesmes/Dropbox/Programacion/autoinforme/src'
-    wwwPath = '/home/flesmes/Dropbox/Programacion/autoinforme/www'
+if hostname == 'grandullon':
+    srcPath = '/home/flesmes/MEGA/Programacion/autoinforme/src'
+    wwwPath = '/home/flesmes/MEGA/Programacion/autoinforme/www'
 else:
     srcPath = '/home/felipe/autoinforme'
     wwwPath = '/var/www/html'

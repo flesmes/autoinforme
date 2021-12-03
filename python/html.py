@@ -116,11 +116,11 @@ def descargar_guia(fecha_validez):
     fecha = fecha_validez.strftime('%d%m%Y:000000')
     boletin = 'FPSP90'
     emisor = 'LEMM'
-    #try:
-    bol = bdbol.request(boletin, emisor, fecha, fecha)
-    return bol
-    #except:
-     #   return 'No se ha podido descargar el boletín'
+    try:
+      bol = bdbol.request(boletin, emisor, fecha, fecha)
+      return bol
+    except:
+      return 'No se ha podido descargar el boletín'
 
 
 # Este script se puede utilizar como módulo importado o como main.
