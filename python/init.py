@@ -46,28 +46,77 @@ def listaImagenes(fecha):
         'GTDnb.gif',
         640))
 
-     #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcance +12
+     #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcances +06, +12, +18, +24
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1006NUB.1.png',
+        640))
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012NUB.1.png',
         640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1018NUB.1.png',
+        640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1024NUB.1.png',
+        640))
 
-    #Imagen 4: T,Z Nivel 850. Pasada del día D a las 00. Alcance +12
+    #Imagen 4: T,Z Nivel 850. Pasada del día D a las 00. Alcances +06, +12, +18, +24
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1006TZ_850.1.png',
+        640))
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_850.1.png',
         640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1018TZ_850.1.png',
+        640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1024TZ_850.1.png',
+        640))
 
-    #Imagen 5: T,Z Nivel 500. Pasada del día D a las 00. Alcance +12
+    #Imagen 5: T,Z Nivel 500. Pasada del día D a las 00. Alcances +06, +12, +18, +24
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1006TZ_500.1.png',
+        640))
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_500.1.png',
         640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1018TZ_500.1.png',
+        640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1024TZ_500.1.png',
+        640))
 
-    #Imagen 6: T,Z Nivel 300. Pasada del día D a las 00. Alcance +12
+
+    #Imagen 6: T,Z Nivel 300. Pasada del día D a las 00. Alcances +06, +12, +18, +24
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1006TZ_300.1.png',
+        640))
     images.append( Imgdata(
         'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_300.1.png',
+        640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1018TZ_300.1.png',
+        640))
+    images.append( Imgdata(
+        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
+        'MOD00CES1024TZ_300.1.png',
         640))
 
     # *****************

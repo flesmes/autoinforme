@@ -2,6 +2,7 @@ VIRTUALENV
 
 El desarrollo está hecho en un entorno virtual con Python3.5.10,
 la versión en las maquinas de pruebas y producción es Python3.5.2
+He intentado hacer el desarrollo con Python3.5.2 pero daba problemas con el pip
 
 Creación del entorno virtual:
 sudo apt install python3-virtualenv
@@ -17,7 +18,9 @@ PRUEBAS
 En las pruebas sobre protocolo file:// en Firefox puede dar un error por
 el control de acceso HTTP (CORS).
 
-He utilizado un servidor web (http-server) para hacer las pruebas
+He utilizado un servidor web (http-server) para hacer las pruebas.
+Problemas con node v14. Utilizar v16 o mayor.
+
 sudo npm install http-server -g
 npm install http-server -g
 

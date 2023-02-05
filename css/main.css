@@ -176,3 +176,14 @@ h3.boletin-head {
 h3.boletin {
     margin-top: 50px;
 }
+
+.selector {
+    text-align: center;
+    font-size: 30px;
+    margin-top: -40px;
+    margin-bottom: 30px;
+}
+
+.selector select {
+    vertical-align: middle;
+}
