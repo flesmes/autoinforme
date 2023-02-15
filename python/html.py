@@ -73,9 +73,10 @@ def generar(fecha):
             bol = predicciones.descargarPrediccion(fecha, alcance, area)
             variables[key] = html_lines(bol)
 
-    guia = descargar_guia(fecha)
-    variables['guia'] = html_lines(guia)
-        
+    guias = descargar_guias(fecha)
+    variables['guiaTecnica00'] = html_lines(guias[0])
+    variables['guiaTecnica12'] = html_lines(guias[1])
+       
     for pagina in paginas:
 
         template = jinjaEnv.get_template(pagina.nombre)
@@ -112,13 +113,15 @@ def html_lines(text):
   lines = ['{}</br>'.format(line) for line in text.splitlines() if line != '']
   return '\n'.join(lines)
 
-def descargar_guia(fecha_validez):
-    fecha = fecha_validez.strftime('%d%m%Y:000000')
+def descargar_guias(fecha_validez):
+    fecha00 = fecha_validez.strftime('%d%m%Y:000000')
+    fecha12 = fecha_validez.strftime('%d%m%Y:120000')
     boletin = 'FPSP90'
     emisor = 'LEMM'
     try:
-      bol = bdbol.request(boletin, emisor, fecha, fecha)
-      return bol
+      bol00 = bdbol.request(boletin, emisor, fecha00, fecha00)
+      bol12 = bdbol.request(boletin, emisor, fecha12, fecha12)
+      return [bol00, bol12]
     except:
       return 'No se ha podido descargar el boletín'
 
