@@ -26,96 +26,96 @@ def listaImagenes(fecha):
 
     #Imagen 1: Guia técnica de diagnóstico. Niveles Medios/Altos. Día D a las 12
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnaSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/12/GT2/S1/000/GTDnaSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
         'g22fa200_2.gif',
         640))
 
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDna.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/12/GT2/S1/000/GTDna.1.gif'.format(fecha.strftime('%Y%m%d')),
         'GTDna.gif',
         640))
 
     #Imagen 2: Análisis de superficie. Día D a las 12
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnbSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/12/GT2/S1/000/GTDnbSAT.1.gif'.format(fecha.strftime('%Y%m%d')),
         'gpx0a200_2.gif',
         640))
 
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/GT2/S1/000/GTDnb.1.gif'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/12/GT2/S1/000/GTDnb.1.gif'.format(fecha.strftime('%Y%m%d')),
         'GTDnb.gif',
         640))
 
      #Imagen 3: P, Nubes Superficie. Pasada del día D a las 00. Alcances +06, +12, +18, +24
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/006/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1006NUB.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/012/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012NUB.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/018/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1018NUB.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/024/NUB.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1024NUB.1.png',
         640))
 
     #Imagen 4: T,Z Nivel 850. Pasada del día D a las 00. Alcances +06, +12, +18, +24
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/006/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1006TZ_850.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/012/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_850.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/018/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1018TZ_850.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/024/TZ_850.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1024TZ_850.1.png',
         640))
 
     #Imagen 5: T,Z Nivel 500. Pasada del día D a las 00. Alcances +06, +12, +18, +24
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/006/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1006TZ_500.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/012/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_500.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/018/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1018TZ_500.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/024/TZ_500.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1024TZ_500.1.png',
         640))
 
 
     #Imagen 6: T,Z Nivel 300. Pasada del día D a las 00. Alcances +06, +12, +18, +24
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/006/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/006/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1006TZ_300.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/012/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/012/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1012TZ_300.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/018/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/018/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1018TZ_300.1.png',
         640))
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CE/S1/024/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CE/S1/024/TZ_300.1.png'.format(fecha.strftime('%Y%m%d')),
         'MOD00CES1024TZ_300.1.png',
         640))
 
@@ -139,30 +139,30 @@ def listaImagenes(fecha):
     # Pasadas D-1 00, D-1 12, D 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/PCP_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/{}/P1/048/PCP_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048PCP_24.1.png'.format(mod),
             640))
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/{}/P1/036/PCP_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/12/{}/P1/036/PCP_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD12{}P1036PCP_24.1.png'.format(mod),
             640))
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/024/PCP_24.1.png'.format(fecha.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/{}/P1/024/PCP_24.1.png'.format(fecha.strftime('%Y%m%d'),mod),
             'MOD00{}P1024PCP_24.1.png'.format(mod),
             640))
 
     #Precipitación 24 H. Modelo EPS
     for umbral in ['1', '5', '20', '40']:
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CEEPSP1/P1/048/PDP_24_{}.1.png'.format(anterior.strftime('%Y%m%d'),umbral),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/CEEPSP1/P1/048/PDP_24_{}.1.png'.format(anterior.strftime('%Y%m%d'),umbral),
             'MOD00CEEPSP1P1048PDP_24_{}.1.png'.format(umbral),
             640))
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/12/CEEPSP1/P1/036/PDP_24_{}.1.png'.format(anterior.strftime('%Y%m%d'),umbral),
+            'http://brisa.aemet.es/archivo/{}/MOD/12/CEEPSP1/P1/036/PDP_24_{}.1.png'.format(anterior.strftime('%Y%m%d'),umbral),
             'MOD12CEEPSP1P1036PDP_24_{}.1.png'.format(umbral),
             640))
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/CEEPSP1/P1/024/PDP_24_{}.1.png'.format(fecha.strftime('%Y%m%d'),umbral),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/CEEPSP1/P1/024/PDP_24_{}.1.png'.format(fecha.strftime('%Y%m%d'),umbral),
             'MOD00CEEPSP1P1024PDP_24_{}.1.png'.format(umbral),
             640))
         
@@ -182,7 +182,7 @@ def listaImagenes(fecha):
     # Pasadas D-1 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/NIEVE_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/{}/P1/048/NIEVE_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048NIEVE_24.1.png'.format(mod),
             640))
 
@@ -190,7 +190,7 @@ def listaImagenes(fecha):
     # Pasadas D-1 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/COTANIEMIN_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/{}/P1/048/COTANIEMIN_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048COTANIEMIN_24.1.png'.format(mod),
             640))
 
@@ -208,7 +208,7 @@ def listaImagenes(fecha):
     # Pasadas D-1 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/RACHA_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/{}/P1/048/RACHA_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048RACHA_24.1.png'.format(mod),
             640))
 
@@ -224,7 +224,7 @@ def listaImagenes(fecha):
 
     #Imagen 2: Postproceso
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/postproceso/nuevasTemperaturas/mapas/00/P/ma_1.png'.format(anterior.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/postproceso/nuevasTemperaturas/mapas/00/P/ma_1.png'.format(anterior.strftime('%Y%m%d')),
         'postproceso00tmax.png',
         640))
 
@@ -232,7 +232,7 @@ def listaImagenes(fecha):
     # Pasadas D-1 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/TMAX_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/{}/P1/048/TMAX_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048TMAX_24.1.png'.format(mod),
             640))
 
@@ -248,7 +248,7 @@ def listaImagenes(fecha):
 
     #Imagen 2: Postproceso
     images.append( Imgdata(
-        'http://sureste.aemet.es/stapwww/archivotemporal/{}/postproceso/nuevasTemperaturas/mapas/00/P/mi_1.png'.format(anterior.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/postproceso/nuevasTemperaturas/mapas/00/P/mi_1.png'.format(anterior.strftime('%Y%m%d')),
         'postproceso00tmin.png',
         640))
 
@@ -256,7 +256,7 @@ def listaImagenes(fecha):
     # Pasadas D-1 00
     for mod in ['CE', 'HMAR']: 
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/MOD/00/{}/P1/048/TMIN_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
+            'http://brisa.aemet.es/archivo/{}/MOD/00/{}/P1/048/TMIN_24.1.png'.format(anterior.strftime('%Y%m%d'),mod),
             'MOD00{}P1048TMIN_24.1.png'.format(mod),
             640))
 
@@ -266,31 +266,31 @@ def listaImagenes(fecha):
 
     #Imagen 1: PCP 
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFIPCP_24.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CEEPSE/P1/024/EFIPCP_24.1.png'.format(fecha.strftime('%Y%m%d')),
         'EFIPCP_24.png',
         640))
 
     #Imagen 2: Nieve 
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFINIE_24.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CEEPSE/P1/024/EFINIE_24.1.png'.format(fecha.strftime('%Y%m%d')),
         'EFINIE_24.png',
         640))
 
     #Imagen 3: TMAX 
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFITMAX_24.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CEEPSE/P1/024/EFITMAX_24.1.png'.format(fecha.strftime('%Y%m%d')),
         'EFITMAX_24.png',
         640))
 
     #Imagen 4: TMIN
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFITMIN_24.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CEEPSE/P1/024/EFITMIN_24.1.png'.format(fecha.strftime('%Y%m%d')),
         'EFITMIN_24.png',
         640))
 
     #Imagen 5: Rachas
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/MOD/00/CEEPSE/P1/024/EFIRACH_24.1.png'.format(fecha.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/MOD/00/CEEPSE/P1/024/EFIRACH_24.1.png'.format(fecha.strftime('%Y%m%d')),
         'EFIRACH_24.png',
         640))
 
@@ -306,12 +306,12 @@ def listaImagenes(fecha):
         else:
             hora = str(h)
         images.append( Imgdata(
-            'http://sureste.aemet.es/stapwww/archivotemporal/{}/RAD/{}/NAC/00_RA2D.PNG'.format(fecha.strftime('%Y%m%d'),hora),
+            'http://brisa.aemet.es/archivo/{}/RAD/{}/NAC/00_RA2D.PNG'.format(fecha.strftime('%Y%m%d'),hora),
             'RAD{}NAC00_RA2D.PNG'.format(hora),
             950))
         
         #images.append( Imgdata(
-        #   'http://sureste.aemet.es/stapwww/archivotemporal/{}/RAD/{}/NAC/00_ACC.PNG'.format(fecha.strftime('%Y%m%d'),hora),
+        #   'http://brisa.aemet.es/archivo/{}/RAD/{}/NAC/00_ACC.PNG'.format(fecha.strftime('%Y%m%d'),hora),
         #  'RAD{}NAC00_ACC.PNG'.format(hora),
         # 950))
 
@@ -328,7 +328,7 @@ def listaImagenes(fecha):
 #        else:
 #            hora = str(h)
 #        images.append( Imgdata(
-#            'http://sureste.aemet.es/stapwww/archivotemporal/{}/SAT/{}/NWCSAF_MN/P1/00_CT_Bajas.PNG'.format(fecha.strftime('%Y%m%d'),hora),
+#            'http://brisa.aemet.es/archivo/{}/SAT/{}/NWCSAF_MN/P1/00_CT_Bajas.PNG'.format(fecha.strftime('%Y%m%d'),hora),
 #            'SAT{}NWCSAF_MNP100_CT_Bajas.PNG'.format(hora),
 #            810))
 
@@ -344,7 +344,7 @@ def listaImagenes(fecha):
 
     #Imagen 2: Rayos 24 H observados 
     images.append( Imgdata(
-        'http://sureste.inm.es/stapwww/archivotemporal/{}/RAD/00/NAC/00_RAY_24h.PNG'.format(siguiente.strftime('%Y%m%d')),
+        'http://brisa.aemet.es/archivo/{}/RAD/00/NAC/00_RAY_24h.PNG'.format(siguiente.strftime('%Y%m%d')),
         'rayos_24h.png',
         480))
 
